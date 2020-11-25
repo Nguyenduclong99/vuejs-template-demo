@@ -7,7 +7,8 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Header start -->
     <a-layout-header class="header">
       <div class="header__logo">
         <a href="#">
@@ -103,30 +104,44 @@
         </a-badge>
       </div>
     </a-layout-header>
-    <a-layout-menu class="nav__content">
+    <!-- Header end -->
+    <!-- menu start -->
+    <div class="nav__content">
       <div class="dropdown">
-        <div class="dropbtn"><fa-icon icon="bars" /> Loại sản phẩm</div>
+        <div class="dropbtn"><fa-icon icon="bars" /> Loại sản phẩm <a-icon style="font-size:10px" type="down" /></div>
         <div class="dropdown-content">
-          <a href="htdfhg">IPhone</a>
-          <a href="httpjhk">Samsung</a>
-          <a href="https:/hhjkk">Oppo</a>
-          <a href="https://hhjk">.....</a>
+          <a href="#">IPhone</a>
+          <a href="#">Samsung</a>
+          <a href="#">Oppo</a>
+          <a href="#">.....</a>
         </div>
       </div>
-      <div class="search-container">
-        <form>
-          <input type="text" placeholder="Tìm kiếm.." name="search" />
-          <button type="submit"><fa-icon icon="search" /></button>
-        </form>
+      <div class="search__form">
+        <input type="text" name="search" placeholder="Enter keyword..." />
+        <div class="submit__button">
+          <button type="submit">Search</button>
+        </div>
       </div>
-    </a-layout-menu>
-
+      <div class="contact__wrap">
+        <div class="contact__icon">
+          <img src="./../assets/icon_contact.png" />
+          <div class="contact__phone">
+            <p>Call us:</p>
+            <a>(+800)345678</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- menu end -->
+    <!-- Slide start -->
     <div class="slide__home">
       <div class="slide__all">
-        <div class="slide active">
-          <img src="./../assets/sample-17.jpg" alt="" />
+        <div class="slide__active">
+          <!-- <img src="./../assets/sample-18.jpg" alt="" /> -->
+          <h2>一百万个可能</h2>
+          <h1>Long Nguyen</h1>
         </div>
-        <div class="slide"><img src="./../assets/sample-18.jpg" alt="" /></div>
+        <div class="slide"><img src="./../assets/sample-17.jpg" alt="" /></div>
       </div>
       <div class="slide__button">
         <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
@@ -138,6 +153,8 @@
         </ul>
       </div>
     </div>
+    <!-- Silde end -->
+    <!-- area home start -->
     <div class="area__home">
       <div class="area__component">
         <img src="./../assets/policy.png" />
@@ -168,6 +185,8 @@
         </div>
       </div>
     </div>
+    <!-- area home end -->
+    <!-- Banner home start -->
     <div class="banner__home">
       <div class="banner__home1">
         <div class="banner__left1">
@@ -181,6 +200,7 @@
         <img src="./../assets/23.jpg" />
       </div>
     </div>
+    <!-- Banner home end -->
     <div class="clear"></div>
     <!-- Best Seller start -->
     <div class="best__sells">
@@ -961,6 +981,7 @@
               <div class="current__price">90$</div>
               <div class="discount__price">-10$</div>
             </section>
+            <div class="clear"></div>
           </div>
           <section class="add__cart">
             <div class="cart__button">
@@ -1142,7 +1163,6 @@
     <!-- Footer end -->
   </a-layout>
 </template>
-
 <style scoped>
 .body {
   background-color: white;
@@ -1227,6 +1247,7 @@
   background-color: #007bff;
   height: 60px;
   overflow: auto;
+  display: flex;
 }
 .dropbtn {
   background-color: #1c6fce;
@@ -1239,10 +1260,11 @@
   height: 60px;
   text-align: center;
   width: 250px;
-}
+  position: relative;
+  }
 
 .dropdown {
-  position: relative;
+  position: absolute;
   width: 200px;
   float: left;
 }
@@ -1254,6 +1276,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  position: absolute;
 }
 
 .dropdown-content a {
@@ -1261,11 +1284,12 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  min-width: 250px;
 }
 
 .dropdown-content a:hover {
-  background-color: #1b1ece;
-  color: white;
+  background-color: #fff6f6;
+  color: rgb(8, 8, 8);
 }
 
 .dropdown:hover .dropdown-content {
@@ -1276,46 +1300,88 @@
   background-color: #2d72aa;
 }
 
-.search-container {
-  margin-right: 500px;
+.search__form {
+  overflow: hidden;
+  margin-top: 7px;
+  margin-left: 350px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 30px 30px 30px 30px;
+  width: 550px;
+  height: 47px;
+  position: relative;
+  align-items: center;
 }
 
-input[type="text"] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  margin-left: 300px;
+.search__form input {
+  height: 47px;
+  background: #fff;
+  color: #b1b1b1;
+  padding: 10px 120px 10px 20px;
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
   border: none;
+  border-radius: 30px;
+  outline: none;
 }
-
-.search-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
+.submit__button {
+  box-sizing: border-box;
+  right: 0;
+  z-index: 2;
+  outline: none;
+  position: absolute;
+  top: 0;
+}
+.submit__button button {
+  background: black;
+  border: 0;
+  box-shadow: none;
+  padding: 0 20px;
+  line-height: 47px;
+  height: 47px;
+  border-radius: 0 30px 30px 0;
+  transition: all 300ms linear;
+  width: 90px;
+  color: #fff;
   cursor: pointer;
 }
+.submit__button button:hover {
+  background-color: #214770;
+}
+.contact__wrap {
+  display: flex;
+  width: 20%;
+  justify-content: flex-end;
+  margin: 8px 0 0 0;
+  position: relative;
 
-.search-container button:hover {
-  background: #ccc;
+}
+.contact__icon {
+  margin: 5px 0px 0 45px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.contact__phone {
+  position: absolute;
+  width: 200px;
+  line-height: 17px;
+  color: #fff;
+  top: 0;
+}
+.contact__phone p{
+margin-left: 60px;
+}
+.contact__phone a{
+  margin-left: 60px;
+  color:#fff;
 }
 
 * {
   box-sizing: border-box;
 }
-
-.slideshow-container {
-  max-width: 500px;
-  position: relative;
-  margin: auto;
-}
-.mySlides {
-  display: none;
-}
-
 .dot {
   cursor: pointer;
   height: 13px;
@@ -1373,16 +1439,71 @@ img {
   opacity: 1;
   visibility: visible;
 }
+.slide__active{
+	width: 100%;
+  height: 480px;
+  background-image: url(./../assets/sample-18.jpg);
+	margin: auto;
+	background-size: cover;
+	animation: phongto 10s forwards;
+	position: relative;
+}
+.slide__active h2{
+	width: 400px;
+	height: 50px;
+	padding: 5px 10px;
+	text-align: center;
+	box-sizing: border-box;
+	color: #000000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	/*margin-left: -200px;*/
+	font-size: 40px;
+	font-family: tahoma;
+	animation: chuChay 4s forwards;
+	animation-delay: 1s;
+	opacity: 0;
+}
+.slide__active h1{
+  width: 400px;
+	height: 50px;
+	padding: 5px 10px;
+	text-align: center;
+	box-sizing: border-box;
+	color: #7e7e7e;
+	position: absolute;
+	top: 65%;
+	left: 50%;
+	margin-top: -25px;
+	/*margin-left: -200px;*/
+	font-size: 50px;
+	font-family: tahoma;
+	animation: chuChay 2s forwards;
+	animation-delay: 1s;
+	opacity: 0;
+  }
+@-webkit-keyframes chuChay{
+	from{
+		opacity: 0;
+		margin-left: -700px;
+	}
+	to{
+		opacity: 1;
+		margin-left: -500px;
+	}
+}
 span#btn-prev {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 0%;
   z-index: 10;
   cursor: pointer;
 }
 span#btn-next {
   position: absolute;
-  top: 20%;
+  top: 30%;
   right: 0%;
   z-index: 10;
   cursor: pointer;
@@ -2087,6 +2208,7 @@ span#btn-next {
   height: 23px;
   width: 286px;
 }
+
 .subcribe__text {
   box-sizing: border-box;
 }
@@ -2148,8 +2270,8 @@ span#btn-next {
 .img__app a img {
   max-width: 150px;
 }
-.clear{
-  clear: both; 
+.clear {
+  clear: both;
 }
 </style>
 <script>
@@ -2165,4 +2287,28 @@ span#btn-next {
 //     });
 //   });
 // });
+// var vueInstance = new Vue({
+//   el: "#app",
+//   data:
+//   {
+//   listProduct:  [
+//       {
+//         image: "./../assets/red.jpg",
+//         quantity: 0,
+//         textColor: "Màu Đỏ",
+//       },
+//       {
+//         image: "./../assets/blue.jpg",
+//         quantity: 8,
+//         textColor: "Màu Xanh",
+//       },
+//       {
+//         image: "./../assets/black.jpg",
+//         quantity: 2,
+//         textColor: "Màu Đen",
+//       }
+//     ],
+
+//     }
+// })
 </script>
