@@ -7,7 +7,7 @@
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Header start -->
     <a-layout-header class="header">
       <div class="header__logo">
@@ -108,7 +108,10 @@
     <!-- menu start -->
     <div class="nav__content">
       <div class="dropdown">
-        <div class="dropbtn"><fa-icon icon="bars" /> Loại sản phẩm <a-icon style="font-size:10px" type="down" /></div>
+        <div class="dropbtn">
+          <fa-icon icon="bars" /> Loại sản phẩm
+          <a-icon style="font-size: 10px" type="down" />
+        </div>
         <div class="dropdown-content">
           <a href="#">IPhone</a>
           <a href="#">Samsung</a>
@@ -223,8 +226,10 @@
               <span>STUDIO DESIGN</span>
             </a>
             <h3>
-              <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+              <a class="product__link"
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -1261,7 +1266,7 @@
   text-align: center;
   width: 250px;
   position: relative;
-  }
+}
 
 .dropdown {
   position: absolute;
@@ -1355,7 +1360,6 @@
   justify-content: flex-end;
   margin: 8px 0 0 0;
   position: relative;
-
 }
 .contact__icon {
   margin: 5px 0px 0 45px;
@@ -1371,12 +1375,12 @@
   color: #fff;
   top: 0;
 }
-.contact__phone p{
-margin-left: 60px;
-}
-.contact__phone a{
+.contact__phone p {
   margin-left: 60px;
-  color:#fff;
+}
+.contact__phone a {
+  margin-left: 60px;
+  color: #fff;
 }
 
 * {
@@ -1439,60 +1443,60 @@ img {
   opacity: 1;
   visibility: visible;
 }
-.slide__active{
-	width: 100%;
+.slide__active {
+  width: 100%;
   height: 480px;
   background-image: url(./../assets/sample-18.jpg);
-	margin: auto;
-	background-size: cover;
-	animation: phongto 10s forwards;
-	position: relative;
+  margin: auto;
+  background-size: cover;
+  animation: phongto 10s forwards;
+  position: relative;
 }
-.slide__active h2{
-	width: 400px;
-	height: 50px;
-	padding: 5px 10px;
-	text-align: center;
-	box-sizing: border-box;
-	color: #000000;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -25px;
-	/*margin-left: -200px;*/
-	font-size: 40px;
-	font-family: tahoma;
-	animation: chuChay 4s forwards;
-	animation-delay: 1s;
-	opacity: 0;
-}
-.slide__active h1{
+.slide__active h2 {
   width: 400px;
-	height: 50px;
-	padding: 5px 10px;
-	text-align: center;
-	box-sizing: border-box;
-	color: #7e7e7e;
-	position: absolute;
-	top: 65%;
-	left: 50%;
-	margin-top: -25px;
-	/*margin-left: -200px;*/
-	font-size: 50px;
-	font-family: tahoma;
-	animation: chuChay 2s forwards;
-	animation-delay: 1s;
-	opacity: 0;
+  height: 50px;
+  padding: 5px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  /*margin-left: -200px;*/
+  font-size: 40px;
+  font-family: tahoma;
+  animation: chuChay 4s forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+.slide__active h1 {
+  width: 400px;
+  height: 50px;
+  padding: 5px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #7e7e7e;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  margin-top: -25px;
+  /*margin-left: -200px;*/
+  font-size: 50px;
+  font-family: tahoma;
+  animation: chuChay 2s forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+@keyframes chuChay {
+  from {
+    opacity: 0;
+    margin-left: -700px;
   }
-@-webkit-keyframes chuChay{
-	from{
-		opacity: 0;
-		margin-left: -700px;
-	}
-	to{
-		opacity: 1;
-		margin-left: -500px;
-	}
+  to {
+    opacity: 1;
+    margin-left: -500px;
+  }
 }
 span#btn-prev {
   position: absolute;
@@ -1523,7 +1527,7 @@ span#btn-next {
   height: 20%;
   background: rgb(212, 248, 6);
   opacity: 0.6;
-  /* list-style: none; */
+  list-style: none;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.6s;
@@ -1556,7 +1560,7 @@ span#btn-next {
   width: 97%;
   margin: 0 auto;
   justify-content: center;
-  border-radius: 5%;
+  border-radius: 10px 10px 10px 10px;
   border: 1px solid#e6e5e5;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -1774,9 +1778,12 @@ span#btn-next {
   font-size: 2;
   color: #000;
 }
+.router-link{
+color: #000;
+}
 /* .h3{
-  color: #253237;
-} */
+    color: #253237;
+  } */
 .rating__product {
   margin-bottom: 6px;
   color: #ecc823;
@@ -1957,7 +1964,6 @@ span#btn-next {
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
 }
-
 .new__product {
   width: 100%;
   height: auto;
@@ -1980,7 +1986,7 @@ span#btn-next {
   margin-bottom: 30px;
   width: 222.666px;
   margin-right: 15px;
-  height: 400px;
+  height: 406px;
   margin-left: 15px;
 }
 .product-new img {
@@ -1999,14 +2005,13 @@ span#btn-next {
   color: #007bff;
 }
 .brand__area {
-  padding-bottom: 20px;
-  padding-top: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  border: 1px solid#ebebeb;
-  border-radius: 5px;
+  width: 97%;
+  margin: 0 auto;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid#e6e5e5;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
-  box-sizing: border-box;
 }
 .brand__slide {
   align-items: center;
@@ -2018,7 +2023,6 @@ span#btn-next {
   border-top: 10px;
   margin-left: 80px;
 }
-
 .footer {
   padding-top: 60x;
   color: #666;
@@ -2189,6 +2193,7 @@ span#btn-next {
   height: 85px;
   background-color: #efefef;
   padding-bottom: 20px;
+  display: flex;
 }
 .footer__bl {
   height: 34px;
@@ -2258,7 +2263,7 @@ span#btn-next {
   cursor: pointer;
 }
 .input__button button:hover {
-  background: #007bff;
+  background: #000000;
 }
 .img__app {
   margin-top: 40px;
