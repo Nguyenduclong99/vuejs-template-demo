@@ -1,96 +1,31 @@
 
 <template>
-  <a-layout class="body">
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Header start -->
+  <div>
     <a-layout-header class="header">
       <div class="header__logo">
         <a href="#">
           <img src="./../assets/logo (1).jpg" />
         </a>
       </div>
-      <div class="header__main">
-        <a-dropdown>
-          <a @click="(e) => e.preventDefault()">
-            Home <a-icon type="down" />
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item>
-              <a href="javascript:;">1st menu item</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
-      </div>
-      <div class="header__main--1">
-        <a-dropdown>
-          <a @click="(e) => e.preventDefault()">
-            Menu <a-icon type="down" />
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item>
-              <a href="javascript:;">1st menu</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
-      </div>
-      <div class="header__main--1">
-        <a-dropdown>
-          <a @click="(e) => e.preventDefault()">
-            Menu <a-icon type="down" />
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item>
-              <a href="javascript:;">1st menu</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
-      </div>
-      <div class="header__main--1">
-        <a-dropdown>
-          <a @click="(e) => e.preventDefault()">
-            Menu <a-icon type="down" />
-          </a>
-          <a-menu slot="overlay">
-            <a-menu-item>
-              <a href="javascript:;">1st menu</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
-              <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
-      </div>
-      <div class="header__main--1">
-        <a-dropdown>
-          <a @click="(e) => e.preventDefault()"> About </a>
-        </a-dropdown>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="#">Trang chủ</a>
+            <ul class="sub__menu">
+              <li id="li"><a href="#">Login/Register</a></li>
+              <li id="li">
+                <a href="#"><a href="#" data-wpel-link="internal">2st</a></a>
+              </li>
+              <li id="li">
+                <a href="#"><a href="#" data-wpel-link="exclude">3st</a></a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Diễn đàn</a></li>
+          <li><a href="#">Tin tức</a></li>
+          <li><a href="#">Hỏi đáp</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
       </div>
       <div class="cart__info" style="width: 300px">
         <a-badge count="1" :number-style="{ backgroundColor: '#52c41a' }">
@@ -137,10 +72,9 @@
     </div>
     <!-- menu end -->
     <!-- Slide start -->
-    <div class="slide__home">
+    <!-- <div class="slide__home">
       <div class="slide__all">
         <div class="slide__active">
-          <!-- <img src="./../assets/sample-18.jpg" alt="" /> -->
           <h2>一百万个可能</h2>
           <h1>Long Nguyen</h1>
         </div>
@@ -154,6 +88,19 @@
           <li></li>
           <li></li>
         </ul>
+      </div>
+    </div> -->
+    <div id="my__slider"></div>
+    <div id="slider__nav">
+      <div id="sliderPrev" @click="prevSlide()">
+        <img
+          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/left-arrow.png"
+        />
+      </div>
+      <div id="sliderNext" @click="nextSlide()">
+        <img
+          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/right-arrow.png"
+        />
       </div>
     </div>
     <!-- Silde end -->
@@ -1166,7 +1113,8 @@
       </div>
     </div>
     <!-- Footer end -->
-  </a-layout>
+<backto-top></backto-top>
+  </div>
 </template>
 <style scoped>
 .body {
@@ -1177,7 +1125,6 @@
   line-height: normal;
   padding: 10px 0 15px 0;
   background: #ffffff;
-  display: flex;
   width: 100%;
 }
 .header__logo {
@@ -1185,36 +1132,39 @@
   height: 34px;
   padding: 0 20px;
 }
-.header__main {
-  display: flex;
-  align-items: center;
-  margin-left: 80px;
+.menu {
+  width: 800px;
 }
-.header__main--1 {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+.menu ul {
+  background: #ffffff;
+  list-style-type: none;
+  text-align: center;
 }
-.header__main a {
-  display: block;
-  padding: 10px 15px;
-  color: #253237;
-  font-weight: 700;
+.menu ul li {
+  color: #f1f1f1;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: -5px;
   position: relative;
 }
-.header__main--1 a {
+.menu ul li:hover .sub__menu {
   display: block;
-  padding: 10px 15px;
-  color: #253237;
-  font-weight: 700;
-  position: relative;
-  height: auto;
 }
-.header__main a:hover {
-  color: #4fb68d;
+.menu ul li a {
+  text-decoration: none;
+  color: rgb(68, 68, 68);
+  display: block;
+  font-weight: bold;
 }
-.header__main--1 a:hover {
-  color: #4fb68d;
+.menu ul li a:hover {
+  color: #0090f0;
+}
+.sub__menu {
+  display: none;
+  position: absolute;
+  z-index: 10;
 }
 .header__account {
   display: flex;
@@ -1228,9 +1178,7 @@
   margin-top: 5px;
 }
 .cart__info {
-  margin-top: 10px;
-  margin-left: 240px;
-  float: right;
+  margin-left: 100px;
 }
 .cart__a {
   display: inline-block;
@@ -1778,8 +1726,8 @@ span#btn-next {
   font-size: 2;
   color: #000;
 }
-.router-link{
-color: #000;
+.router-link {
+  color: #000;
 }
 /* .h3{
     color: #253237;
@@ -2278,42 +2226,285 @@ color: #000;
 .clear {
   clear: both;
 }
+
+
+/* css-slide */
+/* body {
+  text-align: center;
+  font-size: 18px;
+  background-size: cover;
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+  padding-top: 0;
+} */
+
+.singleSlide h1 {
+  font-size: 48px;
+}
+
+.singleSlide h4 {
+  font-size: 24px;
+}
+.singleSlide a {
+  padding: 10px 25px;
+  background-color: #4ca74c;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+}
+#my__slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.singleSlide {
+  background-size: cover;
+  height: 300px;
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  top: 0px;
+}
+.slideOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+}
+#slider__nav {
+  position: relative;
+  top: -175px;
+}
+
+#slider__nav:hover {
+  cursor: pointer;
+}
+
+#sliderPrev {
+  position: relative;
+  float: left;
+  left: 50px;
+}
+
+#sliderNext {
+  position: relative;
+  float: right;
+  right: 50px;
+}
+
+#sliderNext img,
+#sliderPrev img {
+  width: 32px;
+}
+
+@-webkit-keyframes slideIn {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slideIn {
+  100% {
+    left: 0;
+  }
+}
+
+.slideInRight {
+  left: -100%;
+  -webkit-animation: slideIn 1s forwards;
+  animation: slideIn 1s forwards;
+}
+
+.slideInLeft {
+  left: 100%;
+  -webkit-animation: slideIn 1s forwards;
+  animation: slideIn 1s forwards;
+}
+
+@-webkit-keyframes slideOutLeft {
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes slideOutLeft {
+  100% {
+    left: -100%;
+  }
+}
+
+.slideOutLeft {
+  -webkit-animation: slideOutLeft 1s forwards;
+  animation: slideOutLeft 1s forwards;
+}
+
+@-webkit-keyframes slideOutRight {
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes slideOutRight {
+  100% {
+    left: 100%;
+  }
+}
+
+.slideOutRight {
+  -webkit-animation: slideOutRight 1s forwards;
+  animation: slideOutRight 1s forwards;
+}
 </style>
 <script>
-// import $ from "jquery";
-// $(document).ready(function () {
-//   $("#btn-next").click(function () {
-//     var slide_sau = $(".active").next();
-//     $(".active").addClass("bien-mat-ben-trai").one('webkitAnimationEnd', function(){
-//       $('.bien-mat-ben-trai').removeClass('bien-mat-ben-trai').removeClass('active');
-//     });
-//     slide_sau.addClass("active").addClass("di-vao-ben-phai").one('webkitAnimationEnd', function(){
-//       $('.di-vao-ben-phai').removeClass('di-vao-ben-phai');
-//     });
-//   });
-// });
-// var vueInstance = new Vue({
-//   el: "#app",
-//   data:
-//   {
-//   listProduct:  [
-//       {
-//         image: "./../assets/red.jpg",
-//         quantity: 0,
-//         textColor: "Màu Đỏ",
-//       },
-//       {
-//         image: "./../assets/blue.jpg",
-//         quantity: 8,
-//         textColor: "Màu Xanh",
-//       },
-//       {
-//         image: "./../assets/black.jpg",
-//         quantity: 2,
-//         textColor: "Màu Đen",
-//       }
-//     ],
+import backtoTop from './backtoTop.vue';
+export default {
+  components: { backtoTop },
+  mounted() {
+    this.page_scroll_top();
+    this.slider();
+  },
+  methods: {
+    page_scroll_top() {
+      var mybutton = document.getElementById("myBtn");
+      window.onscroll = function () {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+    },
+    topFunction: function () {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+    slider() {
+      // Mỗi slide sẽ có một chỉ số của riêng nó, để đơn giản chúng ta sẽ gán chỉ số mảng cho các slide
+      var slideIndex = 0;
+      // Cho ta biết chúng ta đang ở slide nào
+      var currentSlideIndex = 0;
+      // Mảng lưu các slide của chúng ta
+      var slideArray = [];
+      // Hàm này sẽ giúp chúng ta tạo ra các đối tượng slide
+      // bao gồm: tiêu đề, mô tả, ảnh, đường dẫn khi nhấp vào button trên slide,
+      // và id của mỗi slide
+      function Slide(title, subtitle, background, link) {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.background = background;
+        this.link = link;
+        // we need an id to target later using getElementById
+        this.id = "slide" + slideIndex;
+        // Add one to the index for the next slide number
+        slideIndex++;
+        // Add this Slide to our array
+        slideArray.push(this);
+      }
+      // Tạo các đối tượng slide, bạn có thể tạo nhiều hơn
+      var walkingDead = new Slide(
+        "The Walking Dead",
+        "A show about fighting zombies",
+        "https://acollectivemind.files.wordpress.com/2013/12/season-4-complete-cast-poster-the-walking-dead-the-walking-dead-35777405-2528-670.png",
+        "http://www.amc.com/shows/the-walking-dead"
+      );
+      var bigBang = new Slide(
+        "The Big Bang Theory",
+        "A show about Sheldon",
+        "https://www.denofgeek.com/wp-content/uploads/2019/02/tbbt_12-15.jpg",
+        "http://www.cbs.com/shows/big_bang_theory/"
+      );
+      // var LastMan = new Slide(
+      //   "The Last Man on Earth",
+      //   "A show about loneliness",
+      //   "https://www.wired.com/wp-content/uploads/2015/02/LMOE-AliveInTuscon_scene44_0028_hires2.jpg",
+      //   "http://www.fox.com/the-last-man-on-earth"
+      // );
+      // Từ mảng slide đã tạo, ta tiến hành đưa nó vào source HTML
+      function buildSlider() {
+        var myHTML;
+        for (var i = 0; i < slideArray.length; i++) {
+          myHTML +=
+            "<div id='" +
+            slideArray[i].id +
+            "' class='singleSlide' style='background-image:url(" +
+            slideArray[i].background +
+            ");'>" +
+            "<div class='slideOverlay'>" +
+            "<h1>" +
+            slideArray[i].title +
+            "</h1>" +
+            "<h4>" +
+            slideArray[i].subtitle +
+            "</h4>" +
+            "<a href='" +
+            slideArray[i].link +
+            "' target='_blank'>Open Link</a>" +
+            "</div>" +
+            "</div>";
+        }
 
-//     }
-// })
+        // Đưa HTML vừa tạo vào id #mySlider
+        document.getElementById("my__slider").innerHTML = myHTML;
+        // Đồng thời hiển thị slide đầu tiên
+        document.getElementById("slide" + currentSlideIndex).style.left = 0;
+      }
+      buildSlider();
+    },
+    prevSlide: function (slideArray, currentSlideIndex) {
+      // Tìm slide trước đó
+      var nextSlideIndex;
+      // Nếu chỉ số slide là 0, về slide cuối
+      if (currentSlideIndex === 0) {
+        nextSlideIndex = slideArray.length - 1;
+      } else {
+        // Nếu không thì giảm chỉ số đi 1
+        nextSlideIndex = currentSlideIndex - 1;
+      }
+
+      // Ẩn slide hiện tại, hiện slide "currentSlideIndex"
+      document.getElementById("slide" + nextSlideIndex).style.left = "-100%";
+      document.getElementById("slide" + currentSlideIndex).style.left = 0;
+
+      // Thêm class để chuyển slide có animation đã định nghĩa
+      document
+        .getElementById("slide" + nextSlideIndex)
+        .setAttribute("class", "singleSlide slideInLeft");
+      document
+        .getElementById("slide" + currentSlideIndex)
+        .setAttribute("class", "singleSlide slideOutRight");
+
+      // Cập nhật giá trị slide hiện tại
+      currentSlideIndex = nextSlideIndex;
+    },
+
+    // Xử lý bấm nút chuyển slide tiếp theo
+    // Cách xử lý tương tự như prevSlide
+    nextSlide: function (slideArray, currentSlideIndex) {
+      var nextSlideIndex;
+      if (currentSlideIndex === slideArray.length - 1) {
+        nextSlideIndex = 0;
+      } else {
+        nextSlideIndex = currentSlideIndex + 1;
+      }
+
+      document.getElementById("slide" + nextSlideIndex).style.left = "100%";
+      document.getElementById("slide" + currentSlideIndex).style.left = 0;
+
+      document
+        .getElementById("slide" + nextSlideIndex)
+        .setAttribute("class", "singleSlide slideInRight");
+      document
+        .getElementById("slide" + currentSlideIndex)
+        .setAttribute("class", "singleSlide slideOutLeft");
+
+      currentSlideIndex = nextSlideIndex;
+    },
+  },
+};
 </script>

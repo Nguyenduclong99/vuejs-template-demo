@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import router from './router'
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
 
 Vue.component('fa-icon', FontAwesomeIcon)
 Vue.use(Antd);
