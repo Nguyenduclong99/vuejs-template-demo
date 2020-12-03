@@ -8,6 +8,8 @@
   background: #ffffff;
   /* display: flex;
   width: 100%; */
+  /* position: fixed;
+  z-index: 999; */
 }
 .header__logo {
   margin-top: 10px;
@@ -622,7 +624,6 @@ span#btn-next {
   box-sizing: border-box;
   display: flex;
 }
-
 .old__price {
   color: #9b9b9b;
   font-weight: 400;
@@ -666,9 +667,8 @@ span#btn-next {
   width: 40px;
   border-radius: 10%;
   margin-left: 10px;
-  display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 9999999;
   top: 5%;
 }
 .best__sells #product:hover {
@@ -693,7 +693,7 @@ span#btn-next {
   font-size: 12px;
   font-weight: 700;
   text-transform: capitalize;
-  margin-left: 5px;
+  margin-left: 20px;
   align-items: center;
   cursor: pointer;
   border: 1px solid rgb(142, 235, 196);

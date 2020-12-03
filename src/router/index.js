@@ -5,10 +5,11 @@ import detail from './../components/detail/detail.vue'
 import cart from './../components/cart/cart.vue'
 import login from './../components/login-register/login.vue'
 import checkout from './../components/check-out/checkout.vue'
-
+import listitem from './../components/list-item/listitem.vue'
 Vue.use(VueRouter)
 
 const routes = [
+
   {
     path: '/',
     name: 'Home',
@@ -38,10 +39,17 @@ const routes = [
     path:'/checkout',
     name:"Checkout",
     component: checkout
+  },
+  {
+    path:'/list-item',
+    name:"List-item",
+    component: listitem
   }
+ 
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

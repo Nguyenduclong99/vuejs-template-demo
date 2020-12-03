@@ -8,7 +8,7 @@
   width: 50px;
   height: 50px;
   color: #fff;
-  position: fixed; /*cuộn tới đâu, nó sẽ đi đến đó*/
+  position: fixed;
   right: 20px;
   bottom: 60px;
   background-color: #4fb68d;

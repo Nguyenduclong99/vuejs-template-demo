@@ -72,35 +72,27 @@
     </div>
     <!-- menu end -->
     <!-- Slide start -->
-    <!-- <div class="slide__home">
-      <div class="slide__all">
-        <div class="slide__active">
-          <h2>一百万个可能</h2>
-          <h1>Long Nguyen</h1>
-        </div>
-        <div class="slide"><img src="./../assets/sample-17.jpg" alt="" /></div>
+    <div class="slide__item">
+      <div class="dieuhuong">
+        <span @click="plusDivs(-1)">
+          <i class="fa fa-chevron-circle-left"></i>
+        </span>
+        <span @click="plusDivs(1)"
+          ><i
+            id="islide"
+            class="fa fa-chevron-circle-right"
+            style="cursor: pointer"
+          ></i
+        ></span>
       </div>
-      <div class="slide__button">
-        <span id="btn-prev"><i class="fas fa-chevron-left"></i></span>
-        <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </div> -->
-    <div id="my__slider"></div>
-    <div id="slider__nav">
-      <div id="sliderPrev" @click="prevSlide()">
-        <img
-          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/left-arrow.png"
-        />
-      </div>
-      <div id="sliderNext" @click="nextSlide()">
-        <img
-          src="https://nguyenvanhieu.vn/wp-content/uploads/2020/09/right-arrow.png"
-        />
+      <div class="chuyen-slide">
+        <h2>一百万个可能</h2>
+        <h1>Long Nguyen</h1>
+        <img class="mySlides" src="./../assets/sample-17.jpg" /> // 0
+        <img class="mySlides" src="./../assets/sample-18.jpg" /> // 1000
+        <img class="mySlides" src="./../assets/sample-21.jpg" /> //2000
+        <img class="mySlides" src="./../assets/sample-17.jpg" /> //3000
+        <img class="mySlides" src="./../assets/sample-18.jpg" /> // 4000
       </div>
     </div>
     <!-- Silde end -->
@@ -1113,9 +1105,93 @@
       </div>
     </div>
     <!-- Footer end -->
-<backto-top></backto-top>
+    <backto-top></backto-top>
   </div>
 </template>
+<script>
+import backtoTop from "./backtoTop.vue";
+export default {
+  components: { backtoTop },
+  data() {
+    return {
+      Chuyen: 0,
+      slideIndex: 1,
+      Max: null,
+      Img: null,
+      KichThuoc: null,
+      ChuyenSlide: null,
+    };
+  },
+  mounted() {
+    this.page_scroll_top();
+    this.slide();
+  },
+  methods: {
+    test() {
+      console.log("_-------");
+    },
+    page_scroll_top() {
+      var mybutton = document.getElementById("myBtn");
+      window.onscroll = function () {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+    },
+    topFunction: function () {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+    slide() {
+      this.KichThuoc = document.getElementsByClassName(
+        "slide__item"
+      )[0].clientWidth;
+      this.ChuyenSlide = document.getElementsByClassName("chuyen-slide")[0];
+      this.Img = this.ChuyenSlide.getElementsByTagName("img");
+      this.Max = this.KichThuoc * this.Img.length;
+      this.Max -= this.KichThuoc;
+      this.Chuyen = 0;
+    },
+    showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      if (n > x.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = x.length;
+      }
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      x[this.slideIndex - 1].style.display = "block";
+    },
+    Next: function () {
+      console.log("_______");
+      if (this.Chuyen < this.Max) this.Chuyen += this.KichThuoc;
+      else this.Chuyen = 0;
+      this.ChuyenSlide.style.marginLeft = "-" + this.Chuyen + "px";
+    },
+    plusDivs(n) {
+      this.showDivs((this.slideIndex += n));
+    },
+    Back: function () {
+      if (this.Chuyen == 0) this.Chuyen = this.Max;
+      else this.Chuyen -= this.KichThuoc;
+      this.ChuyenSlide.style.marginLeft = "-" + this.Chuyen + "px";
+    },
+  },
+};
+</script>
+
 <style scoped>
 .body {
   background-color: white;
@@ -1400,7 +1476,7 @@ img {
   animation: phongto 10s forwards;
   position: relative;
 }
-.slide__active h2 {
+.chuyen-slide h2 {
   width: 400px;
   height: 50px;
   padding: 5px 10px;
@@ -1418,7 +1494,7 @@ img {
   animation-delay: 1s;
   opacity: 0;
 }
-.slide__active h1 {
+.chuyen-slide h1 {
   width: 400px;
   height: 50px;
   padding: 5px 10px;
@@ -1789,9 +1865,8 @@ span#btn-next {
   width: 40px;
   border-radius: 10%;
   margin-left: 10px;
-  display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 100000;
   top: 5%;
 }
 .best__sells #product:hover {
@@ -1801,6 +1876,7 @@ span#btn-next {
   box-sizing: border-box;
   display: flex;
   height: 50px;
+  margin-left: 8px;
 }
 .cart__button {
   display: inline-block;
@@ -2226,285 +2302,37 @@ span#btn-next {
 .clear {
   clear: both;
 }
-
-
-/* css-slide */
-/* body {
-  text-align: center;
-  font-size: 18px;
-  background-size: cover;
-  color: #fff;
-  font-family: sans-serif;
+* {
   margin: 0;
-  padding-top: 0;
-} */
-
-.singleSlide h1 {
-  font-size: 48px;
+  padding: 0;
 }
-
-.singleSlide h4 {
-  font-size: 24px;
-}
-.singleSlide a {
-  padding: 10px 25px;
-  background-color: #4ca74c;
-  color: #fff;
-  border-radius: 25px;
-  text-decoration: none;
-}
-#my__slider {
+.slide__item {
+  width: 100%;
+  height: auto;
+  /* margin: 0 auto; */
   overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 400px;
-}
-.singleSlide {
-  background-size: cover;
-  height: 300px;
-  position: absolute;
-  left: 100%;
-  width: 100%;
-  top: 0px;
-}
-.slideOverlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 50px;
-}
-#slider__nav {
-  position: relative;
-  top: -175px;
-}
+  /* margin-top: 50px; */
 
-#slider__nav:hover {
-  cursor: pointer;
-}
-
-#sliderPrev {
   position: relative;
+}
+.chuyen-slide {
+  width: 9999px;
+  transition: all 0.5s;
+}
+.chuyen-slide img {
+  width: 1300px;
+  height: 500px;
   float: left;
-  left: 50px;
 }
-
-#sliderNext {
+.dieuhuong {
+  position: absolute;
+  color: rgb(185, 185, 185);
+  font-size: 40px;
+  top: 48%;
+  padding-left: 20px;
+}
+#islide {
   position: relative;
-  float: right;
-  right: 50px;
-}
-
-#sliderNext img,
-#sliderPrev img {
-  width: 32px;
-}
-
-@-webkit-keyframes slideIn {
-  100% {
-    left: 0;
-  }
-}
-
-@keyframes slideIn {
-  100% {
-    left: 0;
-  }
-}
-
-.slideInRight {
-  left: -100%;
-  -webkit-animation: slideIn 1s forwards;
-  animation: slideIn 1s forwards;
-}
-
-.slideInLeft {
-  left: 100%;
-  -webkit-animation: slideIn 1s forwards;
-  animation: slideIn 1s forwards;
-}
-
-@-webkit-keyframes slideOutLeft {
-  100% {
-    left: -100%;
-  }
-}
-
-@keyframes slideOutLeft {
-  100% {
-    left: -100%;
-  }
-}
-
-.slideOutLeft {
-  -webkit-animation: slideOutLeft 1s forwards;
-  animation: slideOutLeft 1s forwards;
-}
-
-@-webkit-keyframes slideOutRight {
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes slideOutRight {
-  100% {
-    left: 100%;
-  }
-}
-
-.slideOutRight {
-  -webkit-animation: slideOutRight 1s forwards;
-  animation: slideOutRight 1s forwards;
+  left: 1130px;
 }
 </style>
-<script>
-import backtoTop from './backtoTop.vue';
-export default {
-  components: { backtoTop },
-  mounted() {
-    this.page_scroll_top();
-    this.slider();
-  },
-  methods: {
-    page_scroll_top() {
-      var mybutton = document.getElementById("myBtn");
-      window.onscroll = function () {
-        scrollFunction();
-      };
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
-    },
-    topFunction: function () {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    },
-    slider() {
-      // Mỗi slide sẽ có một chỉ số của riêng nó, để đơn giản chúng ta sẽ gán chỉ số mảng cho các slide
-      var slideIndex = 0;
-      // Cho ta biết chúng ta đang ở slide nào
-      var currentSlideIndex = 0;
-      // Mảng lưu các slide của chúng ta
-      var slideArray = [];
-      // Hàm này sẽ giúp chúng ta tạo ra các đối tượng slide
-      // bao gồm: tiêu đề, mô tả, ảnh, đường dẫn khi nhấp vào button trên slide,
-      // và id của mỗi slide
-      function Slide(title, subtitle, background, link) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.background = background;
-        this.link = link;
-        // we need an id to target later using getElementById
-        this.id = "slide" + slideIndex;
-        // Add one to the index for the next slide number
-        slideIndex++;
-        // Add this Slide to our array
-        slideArray.push(this);
-      }
-      // Tạo các đối tượng slide, bạn có thể tạo nhiều hơn
-      var walkingDead = new Slide(
-        "The Walking Dead",
-        "A show about fighting zombies",
-        "https://acollectivemind.files.wordpress.com/2013/12/season-4-complete-cast-poster-the-walking-dead-the-walking-dead-35777405-2528-670.png",
-        "http://www.amc.com/shows/the-walking-dead"
-      );
-      var bigBang = new Slide(
-        "The Big Bang Theory",
-        "A show about Sheldon",
-        "https://www.denofgeek.com/wp-content/uploads/2019/02/tbbt_12-15.jpg",
-        "http://www.cbs.com/shows/big_bang_theory/"
-      );
-      // var LastMan = new Slide(
-      //   "The Last Man on Earth",
-      //   "A show about loneliness",
-      //   "https://www.wired.com/wp-content/uploads/2015/02/LMOE-AliveInTuscon_scene44_0028_hires2.jpg",
-      //   "http://www.fox.com/the-last-man-on-earth"
-      // );
-      // Từ mảng slide đã tạo, ta tiến hành đưa nó vào source HTML
-      function buildSlider() {
-        var myHTML;
-        for (var i = 0; i < slideArray.length; i++) {
-          myHTML +=
-            "<div id='" +
-            slideArray[i].id +
-            "' class='singleSlide' style='background-image:url(" +
-            slideArray[i].background +
-            ");'>" +
-            "<div class='slideOverlay'>" +
-            "<h1>" +
-            slideArray[i].title +
-            "</h1>" +
-            "<h4>" +
-            slideArray[i].subtitle +
-            "</h4>" +
-            "<a href='" +
-            slideArray[i].link +
-            "' target='_blank'>Open Link</a>" +
-            "</div>" +
-            "</div>";
-        }
-
-        // Đưa HTML vừa tạo vào id #mySlider
-        document.getElementById("my__slider").innerHTML = myHTML;
-        // Đồng thời hiển thị slide đầu tiên
-        document.getElementById("slide" + currentSlideIndex).style.left = 0;
-      }
-      buildSlider();
-    },
-    prevSlide: function (slideArray, currentSlideIndex) {
-      // Tìm slide trước đó
-      var nextSlideIndex;
-      // Nếu chỉ số slide là 0, về slide cuối
-      if (currentSlideIndex === 0) {
-        nextSlideIndex = slideArray.length - 1;
-      } else {
-        // Nếu không thì giảm chỉ số đi 1
-        nextSlideIndex = currentSlideIndex - 1;
-      }
-
-      // Ẩn slide hiện tại, hiện slide "currentSlideIndex"
-      document.getElementById("slide" + nextSlideIndex).style.left = "-100%";
-      document.getElementById("slide" + currentSlideIndex).style.left = 0;
-
-      // Thêm class để chuyển slide có animation đã định nghĩa
-      document
-        .getElementById("slide" + nextSlideIndex)
-        .setAttribute("class", "singleSlide slideInLeft");
-      document
-        .getElementById("slide" + currentSlideIndex)
-        .setAttribute("class", "singleSlide slideOutRight");
-
-      // Cập nhật giá trị slide hiện tại
-      currentSlideIndex = nextSlideIndex;
-    },
-
-    // Xử lý bấm nút chuyển slide tiếp theo
-    // Cách xử lý tương tự như prevSlide
-    nextSlide: function (slideArray, currentSlideIndex) {
-      var nextSlideIndex;
-      if (currentSlideIndex === slideArray.length - 1) {
-        nextSlideIndex = 0;
-      } else {
-        nextSlideIndex = currentSlideIndex + 1;
-      }
-
-      document.getElementById("slide" + nextSlideIndex).style.left = "100%";
-      document.getElementById("slide" + currentSlideIndex).style.left = 0;
-
-      document
-        .getElementById("slide" + nextSlideIndex)
-        .setAttribute("class", "singleSlide slideInRight");
-      document
-        .getElementById("slide" + currentSlideIndex)
-        .setAttribute("class", "singleSlide slideOutLeft");
-
-      currentSlideIndex = nextSlideIndex;
-    },
-  },
-};
-</script>
