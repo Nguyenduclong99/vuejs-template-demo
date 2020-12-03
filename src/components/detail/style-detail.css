@@ -180,7 +180,8 @@
   width: 100%;
   display: inline-block;
 }
-/deep/.img__zoom__lens {
+/* >>> hoặc /deep/ ::v-deep đi vào thành phần con, tạo kích thước cho lens */
+::v-deep .img__zoom__lens {
   width: 50px;
   height: 50px;
   border: 1px solid #cccccc;
@@ -499,6 +500,7 @@
   overflow: hidden;
 }
 .inner__link {
+
   font-size: 12px;
   text-transform: uppercase;
   color: #999;

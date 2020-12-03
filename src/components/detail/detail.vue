@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Header start -->
-<cpt-header></cpt-header>
+    <cpt-header></cpt-header>
     <!-- Header end -->
     <!-- breadcrumb-links start -->
     <ul class="breadcrumb__links">
@@ -386,16 +386,15 @@
     </div>
     <!-- you might like end -->
     <!-- footer start  -->
-<cpt-footer></cpt-footer>
+    <cpt-footer></cpt-footer>
     <!-- Footer end -->
     <backto-top></backto-top>
-
   </div>
 </template>
 <script>
-import cptHeader from './../cptHeader.vue';
-import BacktoTop from './../backtoTop.vue';
-import CptFooter from '../cptFooter.vue';
+import cptHeader from "./../cptHeader.vue";
+import BacktoTop from "./../backtoTop.vue";
+import CptFooter from "../cptFooter.vue";
 export default {
   components: { cptHeader, BacktoTop, CptFooter },
   mounted() {
@@ -467,7 +466,6 @@ export default {
     },
   },
 };
-
 </script>
 <style scoped src="./style-detail.css">
 </style>

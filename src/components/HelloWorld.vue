@@ -27,6 +27,9 @@
           <li><a href="#">Liên hệ</a></li>
         </ul>
       </div>
+
+
+      
       <div class="cart__info" style="width: 300px">
         <a-badge count="1" :number-style="{ backgroundColor: '#52c41a' }">
           <a class="cart__a"><fa-icon icon="random" /></a>
@@ -212,8 +215,10 @@
               <span>STUDIO DESIGN</span>
             </a>
             <h3>
-              <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+              <a class="product__link"
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -258,7 +263,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -303,7 +310,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -349,7 +358,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -502,7 +513,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -547,7 +560,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -592,7 +607,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -637,7 +654,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -682,7 +701,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -730,7 +751,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -775,7 +798,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -820,7 +845,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -865,7 +892,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -910,7 +939,9 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                >Juicy Couture Juicy Quilted Ter..</a
+                ><router-link to="/detail"
+                  >Juicy Couture Juicy Quilted Ter..</router-link
+                ></a
               >
             </h3>
             <div class="rating__product">
@@ -1114,22 +1145,14 @@ export default {
   components: { backtoTop },
   data() {
     return {
-      Chuyen: 0,
       slideIndex: 1,
-      Max: null,
-      Img: null,
-      KichThuoc: null,
-      ChuyenSlide: null,
     };
   },
   mounted() {
     this.page_scroll_top();
-    this.slide();
+// this.autochangeSlide();
   },
   methods: {
-    test() {
-      console.log("_-------");
-    },
     page_scroll_top() {
       var mybutton = document.getElementById("myBtn");
       window.onscroll = function () {
@@ -1150,16 +1173,6 @@ export default {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     },
-    slide() {
-      this.KichThuoc = document.getElementsByClassName(
-        "slide__item"
-      )[0].clientWidth;
-      this.ChuyenSlide = document.getElementsByClassName("chuyen-slide")[0];
-      this.Img = this.ChuyenSlide.getElementsByTagName("img");
-      this.Max = this.KichThuoc * this.Img.length;
-      this.Max -= this.KichThuoc;
-      this.Chuyen = 0;
-    },
     showDivs(n) {
       var i;
       var x = document.getElementsByClassName("mySlides");
@@ -1174,21 +1187,15 @@ export default {
       }
       x[this.slideIndex - 1].style.display = "block";
     },
-    Next: function () {
-      console.log("_______");
-      if (this.Chuyen < this.Max) this.Chuyen += this.KichThuoc;
-      else this.Chuyen = 0;
-      this.ChuyenSlide.style.marginLeft = "-" + this.Chuyen + "px";
-    },
     plusDivs(n) {
       this.showDivs((this.slideIndex += n));
     },
-    Back: function () {
-      if (this.Chuyen == 0) this.Chuyen = this.Max;
-      else this.Chuyen -= this.KichThuoc;
-      this.ChuyenSlide.style.marginLeft = "-" + this.Chuyen + "px";
-    },
+    autochangeSlide(){
+      var change = setInterval(this.plusDivs(1), 3000);
+      console.log("csdfsdfdgfdsfgdsg")
+    }
   },
+  
 };
 </script>
 
@@ -1796,14 +1803,14 @@ span#btn-next {
 .product__link {
   color: black;
 }
-.a {
+#description a {
   text-decoration: none;
   transition: 0.3s;
   font-size: 2;
   color: #000;
 }
-.router-link {
-  color: #000;
+#description a:hover {
+  color: #0090f0;
 }
 /* .h3{
     color: #253237;

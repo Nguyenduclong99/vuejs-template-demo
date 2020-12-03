@@ -337,7 +337,6 @@
   height: 23px;
   width: 286px;
 }
-
 .subcribe__text {
   box-sizing: border-box;
 }
