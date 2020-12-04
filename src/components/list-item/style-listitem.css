@@ -55,7 +55,7 @@
   flex: 0 0 80%;
   max-width: 80%;
 }
-.select__shop select {
+ #select {
   width: 350px;
   border: 1px solid #ebebeb;
   border-radius: 10px;
@@ -131,6 +131,9 @@
     padding: 20px 15px 16px 15px;
     background: #fff;
     overflow: hidden;
+}
+#description a:hover{
+color: #4fb68d;
 }
 .add__to__link{
     position: absolute;

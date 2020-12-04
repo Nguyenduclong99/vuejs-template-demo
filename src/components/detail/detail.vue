@@ -164,11 +164,8 @@
               <span>STUDIO DESIGN</span>
             </a>
             <h3>
-              <a class="product__link"
-                ><router-link to="/detail"
-                  >Juicy Couture Juicy Quilted Ter..</router-link
-                ></a
-              >
+              <a class="product__link" href="/detail">
+                Juicy Couture Juicy Quilted Ter..</a>
             </h3>
             <div class="rating__product">
               <i class="fas fa-star"></i>

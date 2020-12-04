@@ -20,7 +20,7 @@
   margin: 0;
   padding: 0;
 }
-.menu ul{
+/* .menu ul{
   background: #ffffff;
   list-style-type: none;
   text-align: center;
@@ -46,7 +46,7 @@
 .sub__menu li {
   display: none;
   position: absolute;
-}
+} */
 .header__account {
   display: flex;
   justify-content: flex-end;
@@ -631,7 +631,6 @@ span#btn-next {
   margin-right: 2px;
   font-size: 14px;
   align-items: center;
-  margin-left: 10px;
 }
 .discount__price {
   display: inline-block;

@@ -8,28 +8,46 @@
         </a>
       </div>
       <div class="menu">
-        <ul>
-          <li>
-            <a href="#">Trang chủ</a>
-            <ul class="sub__menu">
-              <li id="li"><a href="#">Login/Register</a></li>
-              <li id="li">
-                <a href="#"><a href="#" data-wpel-link="internal">2st</a></a>
-              </li>
-              <li id="li">
-                <a href="#"><a href="#" data-wpel-link="exclude">3st</a></a>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Diễn đàn</a></li>
-          <li><a href="#">Tin tức</a></li>
-          <li><a href="#">Hỏi đáp</a></li>
-          <li><a href="#">Liên hệ</a></li>
-        </ul>
+        <nav>
+          <ul>
+            <li>
+              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
+              <ul>
+                <li>
+                  <a href="#">Home1.1<i class="fas fa-chevron-right"></i></a>
+                  <ul>
+                    <li><a href="/home">Home2.1</a></li>
+                    <li><a href="/home">Home2.2</a></li>
+                    <li><a href="#">Home2.3</a></li>
+                    <li><a href="#">Home2.4</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Home1.2<i class="fas fa-chevron-right"></i></a>
+                </li>
+                <li>
+                  <a href="#">Home1.3<i class="fas fa-chevron-right"></i></a>
+                </li>
+                <li>
+                  <a href="#">Home1.4<i class="fas fa-chevron-right"></i></a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/list-item">List</a>
+            </li>
+            <li>
+              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
+            </li>
+                        <li>
+              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
+            </li>
+            <li>
+              <a href="/login">Login/Register</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-
-
-      
       <div class="cart__info" style="width: 300px">
         <a-badge count="1" :number-style="{ backgroundColor: '#52c41a' }">
           <a class="cart__a"><fa-icon icon="random" /></a>
@@ -38,7 +56,7 @@
           <a class="cart__a"><fa-icon icon="heart" /></a>
         </a-badge>
         <a-badge count="2" :number-style="{ backgroundColor: '#52c41a' }">
-          <a class="cart__a"><fa-icon icon="shopping-cart" /></a>
+          <a class="cart__a" href="/cart"><fa-icon icon="shopping-cart" /></a>
         </a-badge>
       </div>
     </a-layout-header>
@@ -1150,7 +1168,7 @@ export default {
   },
   mounted() {
     this.page_scroll_top();
-// this.autochangeSlide();
+    // this.autochangeSlide();
   },
   methods: {
     page_scroll_top() {
@@ -1190,18 +1208,20 @@ export default {
     plusDivs(n) {
       this.showDivs((this.slideIndex += n));
     },
-    autochangeSlide(){
+    autochangeSlide() {
       var change = setInterval(this.plusDivs(1), 3000);
-      console.log("csdfsdfdgfdsfgdsg")
-    }
+      console.log("csdfsdfdgfdsfgdsg");
+    },
   },
-  
 };
 </script>
 
 <style scoped>
 .body {
   background-color: white;
+  font-family: sans-serif;
+  line-height: 24px;
+  font-size: 14px;
 }
 .header {
   height: 79px;
@@ -1216,9 +1236,85 @@ export default {
   padding: 0 20px;
 }
 .menu {
+  padding-left: 20px;
+  padding-top: 5px;
   width: 800px;
 }
-.menu ul {
+
+nav {
+  background-color: white;
+}
+nav ul li a {
+  color: #253237;
+  font-weight: 700;
+  padding: 0px 15px;
+}
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  position: relative;
+}
+nav > ul > li {
+  display: inline-block;
+  line-height: 40px;
+}
+nav > ul > li > a {
+  display: block;
+  line-height: 30px;
+  padding: 5px 40px;
+}
+/* icon down */
+nav > ul > li > a > svg{
+  margin-left: 5px;
+  padding-top: 2px
+}
+/* dropdown link */
+ul > li > ul > li > a {
+  font-weight: 100;
+}
+/* icon right */
+ul > li > ul > li > a > svg {
+  margin-left: 90px;
+}
+ul > li > ul > li {
+  border-bottom: 0.3px solid #dadada;
+}
+/* sub menu */
+nav ul ul {
+  width: 200px;
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 0 3.76px 0.24px rgba(0, 0, 0, 0.15);
+}
+nav ul ul li:hover {
+  transition: 0.3s;
+  margin-left: 10px;
+}
+nav ul ul li a:hover {
+  color: #35b453;
+}
+nav ul li:hover {
+  color: #35b453;
+}
+/* hover show submenu */
+nav ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.8s;
+}
+/* hien menu cap 2 */
+nav ul ul ul {
+  top: 0;
+  left: 100%;
+}
+
+/* .menu ul {
   background: #ffffff;
   list-style-type: none;
   text-align: center;
@@ -1248,7 +1344,7 @@ export default {
   display: none;
   position: absolute;
   z-index: 10;
-}
+} */
 .header__account {
   display: flex;
   justify-content: flex-end;
@@ -1271,13 +1367,13 @@ export default {
   margin-right: 15px;
   font-weight: 400;
 }
-.toggle-menu {
+/* .toggle-menu {
   display: none;
   font-size: 2rem;
   color: #fff;
   margin: 10px 10px 0 0;
   transition: margin 0.2s;
-}
+} */
 .nav__content {
   max-width: 100%;
   background-color: #007bff;
@@ -1836,7 +1932,6 @@ span#btn-next {
   margin-right: 2px;
   font-size: 14px;
   align-items: center;
-  margin-left: 10px;
 }
 .discount__price {
   display: inline-block;

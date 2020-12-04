@@ -6,6 +6,7 @@ import cart from './../components/cart/cart.vue'
 import login from './../components/login-register/login.vue'
 import checkout from './../components/check-out/checkout.vue'
 import listitem from './../components/list-item/listitem.vue'
+import Index from './../components/Index.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path:'/list-item',
     name:"List-item",
     component: listitem
+  },
+  {
+    path:'/home',
+    name:"Home",
+    component: Index
   }
  
 ]

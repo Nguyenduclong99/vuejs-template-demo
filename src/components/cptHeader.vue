@@ -1,8 +1,9 @@
 <template>
   <a-layout-header class="header" id="myHeader">
     <div class="header__logo">
-      <a href="#">
+      <a href="#"><router-link to="/home">
         <img src="./../assets/logo (1).jpg" />
+        </router-link>
       </a>
     </div>
     <div class="header__main">
@@ -82,7 +83,7 @@
     </div>
     <div class="cart__info">
       <a-badge count="2" :number-style="{ backgroundColor: '#52c41a' }">
-        <a class="cart__a"><fa-icon icon="shopping-cart" /></a>
+        <a class="cart__a" href="/cart"><fa-icon icon="shopping-cart" /></a>
       </a-badge>
     </div>
   </a-layout-header>

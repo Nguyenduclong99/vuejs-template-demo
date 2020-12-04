@@ -11,7 +11,7 @@
             <div class="shot__product">
               <p>Sort By:</p>
               <div id="select__shop">
-                <select>
+                <select id="select">
                   <option value="">Sort by newness</option>
                   <option value="">A to Z</option>
                   <option value="">Z to A</option>
