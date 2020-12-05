@@ -385,15 +385,15 @@
     <!-- footer start  -->
     <cpt-footer></cpt-footer>
     <!-- Footer end -->
-    <backto-top></backto-top>
+    <!-- <backto-top></backto-top> -->
   </div>
 </template>
 <script>
 import cptHeader from "./../cptHeader.vue";
-import BacktoTop from "./../backtoTop.vue";
+// import BacktoTop from "./../backtoTop.vue";
 import CptFooter from "../cptFooter.vue";
 export default {
-  components: { cptHeader, BacktoTop, CptFooter },
+  components: { cptHeader,  CptFooter },
   mounted() {
     this.imageZoom();
   },

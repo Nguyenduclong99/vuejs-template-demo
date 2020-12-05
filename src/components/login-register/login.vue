@@ -6,7 +6,7 @@
     <!-- breadcrumb-links start -->
     <ul class="breadcrumb__links">
       <li>
-        <a href="#">Home</a>
+        <a href="/home">Home</a>
       </li>
       <li><i class="fas fa-chevron-right"></i>Login/Register</li>
     </ul>

@@ -1,8 +1,9 @@
 <template>
-  <a-layout-header class="header" id="myHeader">
+  <a-layout-header class="header" id="navbar">
     <div class="header__logo">
-      <a href="#"><router-link to="/home">
-        <img src="./../assets/logo (1).jpg" />
+      <a href="#"
+        ><router-link to="/home">
+          <img src="./../assets/logo (1).jpg" />
         </router-link>
       </a>
     </div>
@@ -96,6 +97,8 @@
   background: #ffffff;
   display: flex;
   width: 100%;
+  position: none;
+  z-index: 999999999999999;
 }
 .header__logo {
   margin-top: 10px;
@@ -213,23 +216,27 @@
 <script>
 export default {
   mounted() {
-    window.addEventListener("scroll", this.pinHeader);
+   this.pinHeader();
   },
   methods: {
     pinHeader() {
+      var header =  document.getElementById("navbar");
+      window.onscroll = function() { myFunction() };
       function myFunction() {
-        var header = document.getElementById("myHeader");
-        // var Fixed = header.offsetTop;
-        if (window.scroll) {
-          header.classList.add("Fixed");
+        if (
+          document.body.scrollTop > 10 ||
+          document.documentElement.scrollTop > 10
+        ) {
+          header.style.position = "fixed";
         } else {
-          header.classList.remove("Fixed");
+          header.style.position = "none";
         }
+        console.log("bbbbbbbbbbb")
       }
     },
   },
   destroyed() {
-    window.removeEventListener("scroll", this.pinHeader);
+    this.pinHeader();
   },
 };
 </script>

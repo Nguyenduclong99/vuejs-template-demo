@@ -38,7 +38,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -88,7 +88,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="#" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter.....</a
                   >
                 </h3>
@@ -138,7 +138,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -188,7 +188,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -242,7 +242,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -292,7 +292,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="#" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter.....</a
                   >
                 </h3>
@@ -342,7 +342,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -392,7 +392,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -446,7 +446,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -496,7 +496,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="#" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter.....</a
                   >
                 </h3>
@@ -546,7 +546,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>
@@ -596,7 +596,7 @@
                   <span>STUDIO DESIGN</span>
                 </a>
                 <h3>
-                  <a href="single-product.html" class="product__link"
+                  <a href="/detail" class="product__link"
                     >Juicy Couture Juicy Quilted Ter..</a
                   >
                 </h3>

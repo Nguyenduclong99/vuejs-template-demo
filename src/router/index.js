@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import detail from './../components/detail/detail.vue'
 import cart from './../components/cart/cart.vue'
 import login from './../components/login-register/login.vue'
@@ -10,16 +9,10 @@ import Index from './../components/Index.vue'
 Vue.use(VueRouter)
 
 const routes = [
-
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   },
   {
     path:'/detail',
@@ -51,12 +44,9 @@ const routes = [
     name:"Home",
     component: Index
   }
- 
 ]
-
 const router = new VueRouter({
   mode: 'history',
   routes
 })
-
 export default router
