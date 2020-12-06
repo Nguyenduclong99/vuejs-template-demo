@@ -1,112 +1,6 @@
 <template>
   <div>
-    <a-layout-header class="header">
-      <div class="header__logo">
-        <a href="#">
-          <img src="./../assets/logo (1).jpg" />
-        </a>
-      </div>
-      <div class="menu">
-        <nav>
-          <ul>
-            <li>
-              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
-              <ul>
-                <li>
-                  <a href="#">Home1.1<i class="fas fa-chevron-right"></i></a>
-                  <ul>
-                    <li><a href="/home">Home2.1</a></li>
-                    <li><a href="/home">Home2.2</a></li>
-                    <li><a href="#">Home2.3</a></li>
-                    <li><a href="#">Home2.4</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Home1.2<i class="fas fa-chevron-right"></i></a>
-                </li>
-                <li>
-                  <a href="#">Home1.3<i class="fas fa-chevron-right"></i></a>
-                </li>
-                <li>
-                  <a href="#">Home1.4<i class="fas fa-chevron-right"></i></a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="/list-item">List</a>
-            </li>
-            <li>
-              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
-            </li>
-            <li>
-              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
-            </li>
-            <li>
-              <a href="/login">Login/Register</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="cart__info" style="width: 300px">
-        <a-badge  id="span" count="1" :number-style="{ backgroundColor: '#52c41a' }">
-          <a class="cart__a"><fa-icon icon="random" /></a>
-        </a-badge>
-        <a-badge  id="span" count="1" :number-style="{ backgroundColor: '#52c41a' }">
-          <a class="cart__a"><fa-icon icon="heart" /></a>
-        </a-badge>
-        <div class="dropdown__cart">
-          <a-badge  id="span" count="2" :number-style="{ backgroundColor: '#52c41a' }">
-            <a class="cart__a" @click="myFunction()">
-              <fa-icon icon="shopping-cart" />
-            </a>
-            <div id="myDropdown" class="dropdown__cart-content">
-              <button @click="offMyFunction()">x</button>
-              <ul>
-                <li class="single__shopping-cart">
-                  <div class="product__img-cart">
-                    <a href="/detail">
-                      <img src="./../assets/p1.jpg" />
-                    </a>
-                    <span class="product__quantity-cart">2x</span>
-                  </div>
-                  <div class="product__title-cart">
-                    <h4><a href="#">Juicy Couture...</a></h4>
-                    <span>9.999$</span>
-                    <div class="product__delete-cart">
-                      <a href="#"><i class="fas fa-times-circle"></i></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="single__shopping-cart">
-                  <div class="product__img-cart">
-                    <a href="/detail">
-                      <img src="./../assets/p1.jpg" />
-                    </a>
-                    <span class="product__quantity-cart">2x</span>
-                  </div>
-                  <div class="product__title-cart">
-                    <h4><a href="#">Juicy Couture...</a></h4>
-                    <span>9.999$</span>
-                    <div class="product__delete-cart">
-                      <a href="#"><i class="fas fa-times-circle"></i></a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <div class="shopping__total-cart">
-                <h4>Subtotal:<span>$20.00</span></h4>
-                <h4>Shipping:<span>$7.00</span></h4>
-                <h4>VAT:<span>$5.00</span></h4>
-                <h4 style="color: #253237; font-weight:500;">Total:<span style="color: #253237; font-weight:500;">$32.00</span></h4>
-              </div>
-              <div class="shopping__btn-checkout">
-                <a href="/checkout">Checkout</a>
-              </div>
-            </div>
-          </a-badge>
-        </div>
-      </div>
-    </a-layout-header>
+<cpt-header></cpt-header>
     <!-- Header end -->
     <!-- menu start -->
     <div class="nav__content">
@@ -1199,9 +1093,9 @@
   </div>
 </template>
 <script>
-import backtoTop from "./backtoTop.vue";
+import cptHeader from "./cptHeader.vue";
 export default {
-  components: { backtoTop },
+  components: { cptHeader },
   data() {
     return {
       slideIndex: 1,
@@ -1211,30 +1105,9 @@ export default {
   },
   
   mounted() {
-    this.page_scroll_top();
     this.autochangeSlide();
   },
   methods: {
-    page_scroll_top() {
-      var mybutton = document.getElementById("myBtn");
-      window.onscroll = function () {
-        scrollFunction();
-      };
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-      }
-    },
-    topFunction: function () {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    },
     showDivs(n) {
       var i;
       var x = document.getElementsByClassName("mySlides");
@@ -1255,12 +1128,7 @@ export default {
     autochangeSlide(){setInterval(() => {
       this.plusDivs(1);
     }, 5000);},
-    myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    },
-    offMyFunction() {
-      document.getElementById("myDropdown").classList.remove("show");
-    },
+    
   },
 };
 </script>
@@ -1414,6 +1282,7 @@ export default {
   line-height: 24px;
   font-size: 14px;
 }
+
 .header {
   height: 79px;
   line-height: normal;

@@ -172,17 +172,15 @@
     <!-- footer start  -->
 <cpt-footer></cpt-footer>
     <!-- Footer end -->
-    <backto-top></backto-top>
   </a-layout>
 </template>
 <style scoped src="./style-checkout.css">
 </style>
 <script>
 import CptFooter from '../cptFooter.vue';
-import BacktoTop from './../backtoTop.vue'
 import cptHeader from './../cptHeader.vue';
 export default {
-  components: { BacktoTop, cptHeader, CptFooter },
+  components: {  cptHeader, CptFooter },
   mounted(){
     this.collapsible();
   },

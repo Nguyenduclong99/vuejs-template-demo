@@ -636,16 +636,15 @@
       </div>
     </div>
     <cpt-footer></cpt-footer>
-    <backto-top></backto-top>
   </div>
 </template>
 <style scoped src="./style-listitem.css">
 </style>
 <script>
-import BacktoTop from "../backtoTop.vue";
+
 import CptFooter from "../cptFooter.vue";
 import cptHeader from "../cptHeader.vue";
 export default {
-  components: { cptHeader, BacktoTop, CptFooter },
+  components: { cptHeader, CptFooter },
 };
 </script>

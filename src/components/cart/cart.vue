@@ -172,7 +172,6 @@
     <cpt-footer></cpt-footer>
     <!-- Footer end -->
     <!-- Back to top start-->
-    <backto-top></backto-top>
     <!-- Back to top end  -->
   </a-layout>
 </template>
@@ -181,10 +180,9 @@
 @import "./style-cart.css";
 </style>
 <script>
-import backtoTop from "../backtoTop.vue";
 import CptFooter from "../cptFooter.vue";
 import CptHeader from "../cptHeader.vue";
 export default {
-  components: { backtoTop, CptFooter, CptHeader },
+  components: { CptFooter, CptHeader },
 };
 </script>

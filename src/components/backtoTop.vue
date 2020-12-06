@@ -1,8 +1,4 @@
-<template>
-  <div class="up__page" id="myBtn" @click="topFunction">
-    <i id="icon" class="fas fa-arrow-up"></i>
-  </div>
-</template>
+
 <style scoped>
 .up__page {
   width: 50px;
