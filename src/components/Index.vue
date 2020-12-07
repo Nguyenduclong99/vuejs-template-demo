@@ -1,6 +1,6 @@
 <template>
   <div>
-<cpt-header></cpt-header>
+    <cpt-header></cpt-header>
     <!-- Header end -->
     <!-- menu start -->
     <div class="nav__content">
@@ -39,7 +39,13 @@
         <span @click="plusDivs(-1)">
           <i class="fa fa-chevron-circle-left"></i>
         </span>
-        <span @click="plusDivs(1)"><i id="islide" class="fa fa-chevron-circle-right" style="cursor: pointer" ></i></span>
+        <span @click="plusDivs(1)"
+          ><i
+            id="islide"
+            class="fa fa-chevron-circle-right"
+            style="cursor: pointer"
+          ></i
+        ></span>
       </div>
       <div class="chuyen-slide">
         <h2>This shop you need</h2>
@@ -105,10 +111,10 @@
       <div class="section__title">
         <h2>Best Sellers</h2>
         <p>Add bestselling products to weekly line up</p>
-        <div class="section__button">
+        <!-- <div class="section__button">
           <span id="btn-pre"><i class="fas fa-chevron-left"></i></span>
           <span id="btn-nex"><i class="fas fa-chevron-right"></i></span>
-        </div>
+        </div> -->
       </div>
       <div class="best__sells__container">
         <div id="product">
@@ -356,10 +362,10 @@
       <div class="section__title">
         <h2>Popular categories</h2>
         <p>Add bestselling products to weekly line up</p>
-        <div class="section__button">
+        <!-- <div class="section__button">
           <span id="btn-pre"><i class="fas fa-chevron-left"></i></span>
           <span id="btn-nex"><i class="fas fa-chevron-right"></i></span>
-        </div>
+        </div> -->
       </div>
       <div class="category__slider">
         <div class="category__component">
@@ -449,10 +455,10 @@
       <div class="section__title">
         <h2>New Arrivals</h2>
         <p>Add bestselling products to weekly line up</p>
-        <div class="section__button">
+        <!-- <div class="section__button">
           <span id="btn-pre"><i class="fas fa-chevron-left"></i></span>
           <span id="btn-nex"><i class="fas fa-chevron-right"></i></span>
-        </div>
+        </div> -->
       </div>
       <div class="new__product__container">
         <div class="product-new">
@@ -942,12 +948,12 @@
     </section>
     <!-- Brand area end -->
     <!-- Footer start -->
-<cpt-footer></cpt-footer>
+    <cpt-footer></cpt-footer>
     <!-- Footer end -->
   </div>
 </template>
 <script>
-import CptFooter from './cptFooter.vue';
+import CptFooter from "./cptFooter.vue";
 import cptHeader from "./cptHeader.vue";
 export default {
   components: { cptHeader, CptFooter },
@@ -956,11 +962,11 @@ export default {
       slideIndex: 1,
     };
   },
-  watch: {
-  },
-  
+  watch: {},
+
   mounted() {
     this.autochangeSlide();
+    this.productScroll();
   },
   methods: {
     showDivs(n) {
@@ -980,10 +986,71 @@ export default {
     plusDivs(n) {
       this.showDivs((this.slideIndex += n));
     },
-    autochangeSlide(){setInterval(() => {
-      this.plusDivs(1);
-    }, 5000);},
-    
+    autochangeSlide() {
+      setInterval(() => {
+        this.plusDivs(1);
+      }, 5000);
+    },
+
+    // productScroll() {
+    //   let slider = document.getElementById("best__sells__container");
+    //   let next = document.getElementById("btn-nex");
+    //   let prev = document.getElementById("pro-pre");
+
+    //   let item = document.getElementById("product");
+
+    //   for (let i = 0; i < next.length; i++) {
+    //     //refer elements by class name
+
+    //     let position = 0; //slider postion
+
+    //     prev[i].addEventListener("click", function () {
+    //       //click previos button
+    //       if (position > 0) {
+    //         console.log("----------");
+    //         //avoid slide left beyond the first item
+    //         position -= 1;
+    //         this.translateX(position); //translate items
+    //       }
+    //     });
+
+    //     next[i].addEventListener("click", function () {
+    //       console.log("----------");
+    //       if (position >= 0 && position < hiddenItems()) {
+    //         //avoid slide right beyond the last item
+    //         position += 1;
+    //         this.translateX(position); //translate items
+    //       }
+    //     });
+    //   }
+
+    //   function hiddenItems() {
+    //     //get hidden items
+    //     let items = this.getCount(item, false);
+    //     let visibleItems = slider.offsetWidth / 210;
+    //     return items - Math.ceil(visibleItems);
+    //   }
+    // },
+
+    // translateX(position) {
+    //   let slide = document.getElementById("slide");
+    //   //translate items
+    //   slide.style.left = position * -210 + "px";
+    // },
+
+    // getCount(parent, getChildrensChildren) {
+    //   //count no of items
+    //   let relevantChildren = 0;
+    //   let children = parent.childNodes.length;
+    //   for (let i = 0; i < children; i++) {
+    //     if (parent.childNodes[i].nodeType != 3) {
+    //       if (getChildrensChildren)
+    //         relevantChildren += this.getCount(parent.childNodes[i], true);
+    //       relevantChildren++;
+    //     }
+    //   }
+    //   return relevantChildren;
+    // },
   },
 };
 </script>
@@ -1014,7 +1081,7 @@ export default {
   width: 20px;
   border: 1px solid rgb(39, 40, 43);
   margin-left: 280px;
-  margin-top:5px;
+  margin-top: 5px;
 }
 .dropdown__cart-content ul {
   margin: 0;
@@ -1033,20 +1100,20 @@ export default {
   width: 85px;
 }
 .product__quantity-cart {
-    background-color: #0090f0;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    min-width: 20px;
-    line-height: 20px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    padding: 0;
-    text-align: center;
-    color: #fff;
-    font-size: 12px;
-    display: inline-block;
+  background-color: #0090f0;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  min-width: 20px;
+  line-height: 20px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
 }
 .single__shopping-cart a img {
   width: 85px;
@@ -1089,44 +1156,44 @@ export default {
   color: #888;
   font-size: 18px;
 }
-.shopping__total-cart{
+.shopping__total-cart {
   margin: 25px 0;
 }
-.shopping__total-cart h4{
-    font-weight: 400;
-    color: #9b9b9b;
-    font-size: 16px;
-    text-transform: capitalize;
-    line-height: 25px;
+.shopping__total-cart h4 {
+  font-weight: 400;
+  color: #9b9b9b;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 25px;
 }
-.shopping__total-cart h4>span{
+.shopping__total-cart h4 > span {
   float: right;
-    font-weight: 400;
-    color: #9b9b9b;
-    font-size: 16px;
-    text-transform: capitalize;
+  font-weight: 400;
+  color: #9b9b9b;
+  font-size: 16px;
+  text-transform: capitalize;
 }
-.shopping__btn-checkout{
+.shopping__btn-checkout {
   text-align: center;
 }
-.shopping__btn-checkout a{
-    display: block;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    border: none;
-    color: #272727;
-    box-shadow: none;
-    padding: 10px 15px;
-    line-height: 28px;
-    border: none;
-    background: #ebebeb;
-    border-radius: 30px;
+.shopping__btn-checkout a {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  border: none;
+  color: #272727;
+  box-shadow: none;
+  padding: 10px 15px;
+  line-height: 28px;
+  border: none;
+  background: #ebebeb;
+  border-radius: 30px;
 }
-.shopping__btn-checkout a:hover{
+.shopping__btn-checkout a:hover {
   background: #0090f0;
   color: #fff;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .show {
   display: block;
@@ -1263,10 +1330,10 @@ nav ul ul ul {
 }
 
 .dropdown {
-    margin-left: 20px;
-    /* position: fixed; */
-    /* background: transparent; */
-    /* width: 270px;   */
+  margin-left: 20px;
+  /* position: fixed; */
+  /* background: transparent; */
+  /* width: 270px;   */
 }
 .dropbtn {
   background-color: #1c6fce;
@@ -1595,12 +1662,11 @@ nav ul ul ul {
 .best__sells {
   width: 100%;
   height: auto;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   background-color: white;
 }
+
 .section__title {
   margin-bottom: 20px;
   margin-top: 50px;
@@ -1669,8 +1735,9 @@ nav ul ul ul {
   transform: scale(1.5);
 }
 .best__sells__container {
-  display: flex;
+  position: relative;
 }
+
 .best__sells #product {
   position: relative;
   background: white;
@@ -1681,7 +1748,7 @@ nav ul ul ul {
   margin-bottom: 30px;
   width: 222.666px;
   margin-right: 15px;
-  height: 400px;
+  height: 406px;
   margin-left: 15px;
 }
 .best__sells #product img {
@@ -1832,6 +1899,7 @@ nav ul ul ul {
   box-sizing: border-box;
   align-items: center;
   margin-right: 10px;
+  margin-left: 10px;
   margin-top: 10px;
   width: 390px;
   height: 150px;
@@ -2219,7 +2287,7 @@ nav ul ul ul {
   /* margin: 0 auto; */
   overflow: hidden;
   /* margin-top: 50px; */
-
+  
   position: relative;
 }
 .chuyen-slide {

@@ -1,0 +1,39 @@
+.about__main{
+    padding: 60px 0 55px 0;
+}
+.about__container{
+    max-width: 1310px;
+    display: flex;
+}
+.col{
+    flex: 0 0 50%;
+    max-width: 50%;
+    height: auto;
+}
+.about__title h2{
+    font-weight: 600;
+    color: #253237;
+    margin: 0 0 15px;
+    font-size: 40px;
+}
+.about__content{
+    margin-bottom: 30px;
+}
+.content__bottom{
+    margin-top: 30px;
+    display: flex;
+}
+.col__bottom{
+flex: 0 0 33.33%;
+max-width: 33.33%;
+padding: 10px;
+}
+.col__bottom h4{
+    font-size: 30px;
+    font-weight: 600;
+    color: #253237;
+    margin: 0 0 15px;
+}
+.col__bottom p {
+    color: #253237;
+}

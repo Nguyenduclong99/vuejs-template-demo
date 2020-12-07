@@ -11,179 +11,148 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <style type="text/css">
-      body {
-        padding-top: 20px;
-      }
-      .carousel {
-        margin-bottom: 0;
-        padding: 0 40px 30px 40px;
-      }
+.slider {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  margin: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  
+}
 
-      .carousel-control {
-        left: -12px;
-        height: 40px;
-        width: 40px;
-        background: none repeat scroll 0 0 #222222;
-        border: 4px solid #ffffff;
-        border-radius: 23px 23px 23px 23px;
-        margin-top: 90px;
-      }
+.slider::-webkit-scrollbar {
+  display: none;
+  
+}
 
-      .carousel-control.right {
-        right: -12px;
-      }
+.slider .slide {
+  display: flex;
+  position: absolute;
+  left: 0;
+  transition: 0.3s left ease-in-out;
+}
 
-      .carousel-indicators {
-        right: 50%;
-        top: auto;
-        bottom: -10px;
-        margin-right: -19px;
-      }
-      /* The colour of the indicators */
-      .carousel-indicators li {
-        background: #cecece;
-      }
-      .carousel-indicators .active {
-        background: #428bca;
-      }
+.slider .item {
+  margin-right: 10px;
+}
+
+.slider .item:last-child {
+  margin-right: 0;
+}
+
+.ctrl {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.ctrl-btn {
+  padding: 20px 20px;
+  min-width: 50px;
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+
+  position: absolute;
+  top: 50%;
+  margin-top: -27.5px;
+}
+
+.ctrl-btn.pro-prev {
+  left: 0;
+}
+
+.ctrl-btn.pro-next {
+  right: 0;
+}
     </style>
   </head>
+
+
   <body>
-    <div class="container">
-      <h2 align="center">
-        Hướng dẫn tạo trang cuộn sản phẩm mới bằng Bootstrap
-      </h2>
-      <div class="row">
-        <div class="col-md-12">
-          <div id="Carousel" class="carousel slide">
-            <ol class="carousel-indicators">
-              <li data-target="#Carousel" data-slide-to="0" class="active"></li>
-              <li data-target="#Carousel" data-slide-to="1"></li>
-              <li data-target="#Carousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="item active">
-                <div class="row">
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="row">
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="row">
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                  <div class="col-md-3">
-                    <a class="thumbnail"
-                      ><img
-                        src="http://placehold.it/250x250"
-                        alt="Image"
-                        style="max-width:100%;"
-                    /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a data-slide="prev" class="left carousel-control">‹</a>
-            <a data-slide="next" class="right carousel-control">›</a>
-          </div>
-        </div>
+    <div class="slider" id="slider">
+      <div class="slide" id="slide">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product1">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product1">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product1">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product1">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product2">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product2">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product2">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product2">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product3">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product3">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product3">
+        <img class="item" src="http://via.placeholder.com/200x200?text=Product3">
       </div>
+      <button class="ctrl-btn pro-prev">Prev</button>
+      <button class="ctrl-btn pro-next">Next</button>
     </div>
   </body>
 </html>
-<script src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $("#Carousel").carousel({
-      interval: 5000,
+"use strict";
+
+productScroll();
+
+function productScroll() {
+  let slider = document.getElementById("slider");
+  let next = document.getElementsByClassName("pro-next");
+  let prev = document.getElementsByClassName("pro-prev");
+  let slide = document.getElementById("slide");
+  let item = document.getElementById("slide");
+
+  for (let i = 0; i < next.length; i++) {
+    //refer elements by class name
+
+    let position = 0; //slider postion
+
+    prev[i].addEventListener("click", function() {
+      //click previos button
+      if (position > 0) {
+        //avoid slide left beyond the first item
+        position -= 1;
+        translateX(position); //translate items
+      }
     });
-  });
+
+    next[i].addEventListener("click", function() {
+      if (position >= 0 && position < hiddenItems()) {
+        //avoid slide right beyond the last item
+        position += 1;
+        translateX(position); //translate items
+      }
+    });
+  }
+
+  function hiddenItems() {
+    //get hidden items
+    let items = getCount(item, false);
+    let visibleItems = slider.offsetWidth / 210;
+    return items - Math.ceil(visibleItems);
+  }
+}
+
+function translateX(position) {
+  //translate items
+  slide.style.left = position * -210 + "px";
+}
+
+function getCount(parent, getChildrensChildren) {
+  //count no of items
+  let relevantChildren = 0;
+  let children = parent.childNodes.length;
+  for (let i = 0; i < children; i++) {
+    if (parent.childNodes[i].nodeType != 3) {
+      if (getChildrensChildren)
+        relevantChildren += getCount(parent.childNodes[i], true);
+      relevantChildren++;
+    }
+  }
+  return relevantChildren;
+}
+
 </script>

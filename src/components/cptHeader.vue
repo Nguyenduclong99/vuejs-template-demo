@@ -36,10 +36,10 @@
               <a href="/list-item">List</a>
             </li>
             <li>
-              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
+              <a href="/cart">Cart<i class="fas fa-chevron-down"></i></a>
             </li>
             <li>
-              <a href="#">Home<i class="fas fa-chevron-down"></i></a>
+              <a href="/about">About<i class="fas fa-chevron-down"></i></a>
             </li>
             <li>
               <a href="/login">Login/Register</a>
@@ -244,6 +244,7 @@
   width: 100%;
   z-index: 999999999999999;
   position: none;
+  transition: all 1.5s;
 }
 .header__logo {
   margin-top: 10px;
@@ -255,7 +256,6 @@
   padding-top: 5px;
   width: 800px;
 }
-
 nav {
   background-color: white;
 }
@@ -387,7 +387,7 @@ nav ul ul ul {
   list-style: none;
 }
 .single__shopping-cart {
-  padding: 30px 0px;
+  padding: 15px 0px;
   border-bottom: 1px solid #ebebeb;
   overflow: hidden;
 }

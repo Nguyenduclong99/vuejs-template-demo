@@ -6,14 +6,10 @@ import login from './../components/login-register/login.vue'
 import checkout from './../components/check-out/checkout.vue'
 import listitem from './../components/list-item/listitem.vue'
 import Index from './../components/Index.vue'
+import About from './../components/about/about.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
-  },
   {
     path:'/detail',
     name:'Detail',
@@ -43,6 +39,11 @@ const routes = [
     path:'/home',
     name:"Home",
     component: Index
+  },
+  {
+    path:'/about',
+    name:"About",
+    component: About
   }
 ]
 const router = new VueRouter({

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        .header{
+ background-color: white;
+ padding: 20px 10px;
+ height: auto;
+ display: flex;
+ align-items: center;
+ justify-items: center;
+        }
+        label{
+            width: 100px;
+            height: 40;
+            border: 1px solid #030000;
+            border-radius: 30px;
+        }
+        button{
+            background-color: rgb(212, 32, 32);
+            border: none;
+            color: white;
+            cursor:  pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+    <form>
+        <label>Nhập ảnh</label>
+        <input name="Anh" type="text"></input>
+        <label>Nhập tên</label>
+        <input name="Ten" type="text"></input>
+        <label>Nhập giá</label>
+        <input name="GiaGoc" type="number"></input>
+        <label>Nhập % KM</label>
+        <input name="PhanTramKM" type="number"></input>
+    </form>
+        <button onclick="TaoSanPham();">Tạo sản phẩm</button>
+    </div>
+</body>
+<script>
+function TaoSanPham(Anh, Ten, GiaGoc, PhanTramKM, ID) {
+  var SanPham = Object();
+  SanPham.Anh = Anh;
+  SanPham.Ten = Ten;
+  SanPham.GiaGoc = GiaGoc;
+  SanPham.PhanTramKM = PhanTramKM;
+  if (ID != null) {
+    SanPham.ID = ID;
+  } else {
+    var ID = taoID();
+  }
+  SanPham.tinhGiaBan = function() {
+    var GiaBan = (this.GiaGoc * (100 - this.PhanTramKM)) / 100;
+    return GiaBan;
+  };
+  SanPham.toJson = function() {
+    var json = JSON.stringify(this);
+    return json;
+  };
+  SanPham.fromJson = function(json) {
+    var doituongDayDu = new Object();
+
+    var doituong = JSON.parse(json);
+
+    var doituongDayDu = TaoSanPham(
+      doituong.Anh,
+      doituong.Ten,
+      doituong.GiaGoc,
+      doituong.PhanTramKM
+    );
+    return doituongDayDu;
+    console.log("doituongDayDu" + doituongDayDu)
+  };
+}
+function taoID(){
+    var id='';
+    //sinh ID
+     id = Math.random().toString().substr(2,10) + "_" + String(new Date().getTime());
+    return id; 
+    }
+</script>
+</html>
