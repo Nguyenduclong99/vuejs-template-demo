@@ -942,160 +942,15 @@
     </section>
     <!-- Brand area end -->
     <!-- Footer start -->
-    <div class="footer">
-      <div class="footer__top">
-        <div class="footer__tl">
-          <div class="footer__logo">
-            <img src="./../assets/logo (1).jpg" />
-          </div>
-          <div class="footer__about">
-            <div id="text-info">
-              <p>
-                We are a team of designers and developers that create high
-                quality HTML template
-              </p>
-            </div>
-            <div id="phone-info">
-              <p>NEED HELP ?</p>
-              <span>
-                (+800) 345 678
-                <br />
-                (+800) 123 456
-              </span>
-            </div>
-            <div id="social-icon">
-              <ul>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-google"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer__tr">
-          <div id="col1">
-            <h3>
-              Information
-              <div class="footer__herading"></div>
-            </h3>
-            <div class="footer__links">
-              <ul>
-                <li>
-                  <a href="#">Delivery</a>
-                </li>
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Secure Payment</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
-                </li>
-                <li>
-                  <a href="#">Sitemap</a>
-                </li>
-                <li>
-                  <a href="#">Stores</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div id="col1">
-            <h3>
-              Custom Links
-              <div class="footer__herading"></div>
-            </h3>
-            <div class="footer__links">
-              <ul>
-                <li>
-                  <a href="#">Legal Notice</a>
-                </li>
-                <li>
-                  <a href="#">Prices Drop</a>
-                </li>
-                <li>
-                  <a href="#">New Products</a>
-                </li>
-                <li>
-                  <a href="#">Best Sales</a>
-                </li>
-                <li>
-                  <a href="#">Login</a>
-                </li>
-                <li>
-                  <a href="#">My Account</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div id="col3">
-            <h3>
-              Newsletter
-              <div class="footer__herading"></div>
-            </h3>
-            <div class="subcribe__text">
-              <p>
-                You may unsubscribe at any moment. For that purpose, please find
-                our contact info in the legal notice.
-              </p>
-            </div>
-            <div class="subcribe__form">
-              <input type="email" placeholder="Enter your email..." />
-              <div class="input__button">
-                <button type="submit">Sign up</button>
-              </div>
-            </div>
-            <div class="img__app">
-              <a href="#">
-                <img src="./../assets/app_store.png" />
-              </a>
-              <a href="#">
-                <img src="./../assets/google_play.png" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div class="footer__bl">
-          <p id="copy-text">Copyright © . All Rights Reserved</p>
-        </div>
-        <div class="footer__br">
-          <img src="./../assets/payment.png" />
-        </div>
-      </div>
-    </div>
+<cpt-footer></cpt-footer>
     <!-- Footer end -->
-    <backto-top></backto-top>
   </div>
 </template>
 <script>
+import CptFooter from './cptFooter.vue';
 import cptHeader from "./cptHeader.vue";
 export default {
-  components: { cptHeader },
+  components: { cptHeader, CptFooter },
   data() {
     return {
       slideIndex: 1,
@@ -1456,7 +1311,6 @@ nav ul ul ul {
 .dropdown:hover .dropbtn {
   background-color: #2d72aa;
 }
-
 .search__form {
   overflow: hidden;
   margin-top: 7px;
@@ -1469,7 +1323,6 @@ nav ul ul ul {
   position: relative;
   align-items: center;
 }
-
 .search__form input {
   height: 47px;
   background: #fff;
@@ -1534,7 +1387,6 @@ nav ul ul ul {
   margin-left: 60px;
   color: #fff;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -1566,44 +1418,6 @@ nav ul ul ul {
   padding: 0;
 }
 
-.slide__home {
-  width: 100%;
-  height: 413px;
-  position: relative;
-}
-.slide__all {
-  width: 100%;
-  height: 413px;
-  overflow: hidden;
-}
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-img {
-  width: 100%;
-}
-.slide__button span {
-  color: rgb(168, 168, 168);
-  font-size: 60px;
-  opacity: 0.6;
-}
-.slide.active {
-  opacity: 1;
-  visibility: visible;
-}
-.slide__active {
-  width: 100%;
-  height: 480px;
-  background-image: url(./../assets/sample-18.jpg);
-  margin: auto;
-  background-size: cover;
-  animation: phongto 10s forwards;
-  position: relative;
-}
 .chuyen-slide h2 {
   width: 400px;
   height: 50px;
@@ -1649,40 +1463,6 @@ img {
     opacity: 1;
     margin-left: -500px;
   }
-}
-span#btn-prev {
-  position: absolute;
-  top: 30%;
-  left: 0%;
-  z-index: 10;
-  cursor: pointer;
-}
-span#btn-next {
-  position: absolute;
-  top: 30%;
-  right: 0%;
-  z-index: 10;
-  cursor: pointer;
-}
-.slide__button ul {
-  position: absolute;
-  z-index: 10;
-  width: 100px;
-  bottom: 5%;
-  left: 50%;
-  margin-left: -50px;
-  display: flex;
-  justify-content: space-between;
-}
-.slide__button ul li {
-  width: 20%;
-  height: 20%;
-  background: rgb(212, 248, 6);
-  opacity: 0.6;
-  list-style: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.6s;
 }
 .bien-mat-ben-trai {
   animation: bien-mat-ben-trai 1s forwards;

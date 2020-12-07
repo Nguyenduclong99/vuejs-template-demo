@@ -1,96 +1,5 @@
 <template>
-<div>
-  <!-- <a-layout-header class="header" id="navbar">
-    <div class="header__logo">
-      <a href="#"
-        ><router-link to="/home">
-          <img src="./../assets/logo (1).jpg" />
-        </router-link>
-      </a>
-    </div>
-    <div class="header__main">
-      <a-dropdown>
-        <a @click="(e) => e.preventDefault()"> Home <a-icon type="down" /> </a>
-        <a-menu slot="overlay">
-          <a-menu-item>
-            <a href="javascript:;">1st menu item</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">2nd menu item</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">3rd menu item</a>
-          </a-menu-item>
-        </a-menu>
-      </a-dropdown>
-    </div>
-    <div class="header__main--1">
-      <a-dropdown>
-        <a @click="(e) => e.preventDefault()"> Menu <a-icon type="down" /> </a>
-        <a-menu slot="overlay">
-          <a-menu-item>
-            <a href="javascript:;">1st menu</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">2nd menu item</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">3rd menu item</a>
-          </a-menu-item>
-        </a-menu>
-      </a-dropdown>
-    </div>
-    <div class="header__main--1">
-      <a-dropdown>
-        <a @click="(e) => e.preventDefault()"> Menu <a-icon type="down" /> </a>
-        <a-menu slot="overlay">
-          <a-menu-item>
-            <a href="javascript:;">1st menu</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">2nd menu item</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">3rd menu item</a>
-          </a-menu-item>
-        </a-menu>
-      </a-dropdown>
-    </div>
-    <div class="header__main--1">
-      <a-dropdown>
-        <a @click="(e) => e.preventDefault()"> Menu <a-icon type="down" /> </a>
-        <a-menu slot="overlay">
-          <a-menu-item>
-            <a href="javascript:;">1st menu</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">2nd menu item</a>
-          </a-menu-item>
-          <a-menu-item>
-            <a href="javascript:;">3rd menu item</a>
-          </a-menu-item>
-        </a-menu>
-      </a-dropdown>
-    </div>
-    <div class="header__main--1">
-      <a-dropdown>
-        <a @click="(e) => e.preventDefault()"> About </a>
-      </a-dropdown>
-    </div>
-    <div class="search__item">
-      <input type="text" name="search" placeholder="Enter keyword..." />
-      <div class="submit__button">
-        <button type="submit">Search</button>
-      </div>
-    </div>
-    <div class="cart__info">
-      <a-badge count="2" :number-style="{ backgroundColor: '#52c41a' }">
-        <a class="cart__a" href="/cart"><fa-icon icon="shopping-cart" /></a>
-      </a-badge>
-    </div>
-  </a-layout-header> -->
-       
-       
+<div>     
     <a-layout-header class="header" id="navbar">
       <div class="header__logo">
         <a href="#">
@@ -618,7 +527,7 @@ export default {
   },
   methods: {
     pinHeader() {
-      var header =  document.getElementById("navbar");
+      // var header =  document.getElementById("navbar");
       var mybutton = document.getElementById("myBtn");
       window.onscroll = function() { myFunction() };
       function myFunction() {
@@ -626,13 +535,13 @@ export default {
           document.body.scrollTop > 10 ||
           document.documentElement.scrollTop > 10
         ) {
-          header.style.position = "fixed";
+          document.getElementById("navbar").style.position = "fixed";
           mybutton.style.display = "block";
-          header.style.boxShadow = " 3px 3px 3px #8D8B8A";
+          document.getElementById("navbar").style.boxShadow = " 3px 3px 3px #8D8B8A";
         } else {
-          header.style.position = "none";
+           document.getElementById("navbar").style.position = "initial";
           mybutton.style.display = "none";
-          header.style.boxShadow = "none";
+           document.getElementById("navbar").style.boxShadow = "none";
         }
       }
     },
