@@ -148,10 +148,10 @@
       <div class="section__title">
         <h2>You Might Also Like</h2>
         <p>Add Related products to weekly line up</p>
-        <div class="section__button">
+        <!-- <div class="section__button">
           <span id="btn-pre"><i class="fas fa-chevron-left"></i></span>
           <span id="btn-nex"><i class="fas fa-chevron-right"></i></span>
-        </div>
+        </div> -->
       </div>
       <div class="best__sells__container">
         <div id="product">
@@ -388,81 +388,7 @@
     <!-- <backto-top></backto-top> -->
   </div>
 </template>
-<script>
-import cptHeader from "./../cptHeader.vue";
-// import BacktoTop from "./../backtoTop.vue";
-import CptFooter from "../cptFooter.vue";
-export default {
-  components: { cptHeader,  CptFooter },
-  mounted() {
-    this.imageZoom();
-  },
-  methods: {
-    imageZoom(result) {
-      var img, lens, cx, cy;
-      img = document.getElementById("myimage");
-      result = document.getElementById("myresult");
-      lens = document.createElement("DIV");
-      lens.setAttribute("class", "img__zoom__lens");
-      img.parentElement.insertBefore(lens, img);
-
-      cx = result.offsetWidth / lens.offsetWidth;
-      cy = result.offsetHeight / lens.offsetHeight;
-      result.style.backgroundImage = "url('" + img.src + "')";
-      result.style.backgroundSize =
-        img.width * cx + "px " + img.height * cy + "px";
-      /*execute a function when someone moves the cursor over the image, or the lens:*/
-      lens.addEventListener("mousemove", moveLens);
-      img.addEventListener("mousemove", moveLens);
-      /*and also for touch screens:*/
-      lens.addEventListener("touchmove", moveLens);
-      img.addEventListener("touchmove", moveLens);
-      function moveLens(e) {
-        var pos, x, y;
-        /*prevent any other actions that may occur when moving over the image:*/
-        e.preventDefault();
-        /*get the cursor's x and y positions:*/
-        pos = getCursorPos(e);
-        /*calculate the position of the lens:*/
-        x = pos.x - lens.offsetWidth / 2;
-        y = pos.y - lens.offsetHeight / 2;
-        /*prevent the lens from being positioned outside the image:*/
-        if (x > img.width - lens.offsetWidth) {
-          x = img.width - lens.offsetWidth;
-        }
-        if (x < 0) {
-          x = 0;
-        }
-        if (y > img.height - lens.offsetHeight) {
-          y = img.height - lens.offsetHeight;
-        }
-        if (y < 0) {
-          y = 0;
-        }
-        /*set the position of the lens:*/
-        lens.style.left = x + "px";
-        lens.style.top = y + "px";
-        /*display what the lens "sees":*/
-        result.style.backgroundPosition = "-" + x * cx + "px -" + y * cy + "px";
-      }
-      function getCursorPos(e) {
-        var a,
-          x = 0,
-          y = 0;
-        e = e || window.event;
-        /*get the x and y positions of the image:*/
-        a = img.getBoundingClientRect();
-        /*calculate the cursor's x and y coordinates, relative to the image:*/
-        x = e.pageX - a.left;
-        y = e.pageY - a.top;
-        /*consider any page scrolling:*/
-        x = x - window.pageXOffset;
-        y = y - window.pageYOffset;
-        return { x: x, y: y };
-      }
-    },
-  },
-};
+<script src = "./detail.js">
 </script>
 <style scoped src="./style-detail.css">
 </style>

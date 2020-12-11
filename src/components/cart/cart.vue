@@ -179,10 +179,5 @@
 <style scoped>
 @import "./style-cart.css";
 </style>
-<script>
-import CptFooter from "../cptFooter.vue";
-import CptHeader from "../cptHeader.vue";
-export default {
-  components: { CptFooter, CptHeader },
-};
+<script src="./cart.js">
 </script>

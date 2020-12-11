@@ -7,8 +7,8 @@ import checkout from './../components/check-out/checkout.vue'
 import listitem from './../components/list-item/listitem.vue'
 import Index from './../components/Index.vue'
 import About from './../components/about/about.vue'
+import MyAcc from './../components/my-acc/myacc.vue'
 Vue.use(VueRouter)
-
 const routes = [
   {
     path:'/detail',
@@ -44,6 +44,11 @@ const routes = [
     path:'/about',
     name:"About",
     component: About
+  },
+  {
+    path: '/myacc',
+    name : "Myacc",
+    component: MyAcc
   }
 ]
 const router = new VueRouter({

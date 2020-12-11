@@ -164,25 +164,7 @@ textarea{
 .place__order{
     margin-top: 25px;
 }
-.collapsible {
-    background-color: #f6f6f6;
-    color: #4c4747;
-    cursor: pointer;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    font-weight: bold;
-  }
-  .content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f6f6f6;
-  }
+
 .btn__hover{
     background-color: #4fb68b;
     color: #fff;

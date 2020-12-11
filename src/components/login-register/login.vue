@@ -8,7 +8,7 @@
       <li>
         <a href="/home">Home</a>
       </li>
-      <li><i class="fas fa-chevron-right"></i>Login/Register</li>
+      <li><i class="fas fa-chevron-right"></i>Sign in/Sign up</li>
     </ul>
     <!-- breadcrumb-links end -->
     <!-- container start -->
@@ -32,19 +32,19 @@
         </div>
         <div class="sub__cont">
           <div class="img">
-            <div class="img__text m--up">
+            <div class="img__text m__up">
               <h2>New here?</h2>
               <p>Sign up and discover great amount of new opportunities!</p>
             </div>
-            <div class="img__text m--in">
+            <div class="img__text m__in">
               <h2>One of us?</h2>
               <p>
                 If you already has an account, just sign in. We've missed you!
               </p>
             </div>
             <div class="img__btn">
-              <span class="m--up">Sign Up</span>
-              <span class="m--in">Sign In</span>
+              <span class="m__up">Sign Up</span>
+              <span class="m__in">Sign In</span>
             </div>
           </div>
           <div class="form sign-up">
@@ -71,30 +71,12 @@
     <!-- footer start -->
     <cpt-footer></cpt-footer>
     <!-- footer end -->
-    <!-- <backto-top></backto-top> -->
   </a-layout>
 </template>
+
 <style scoped src="./style-login.css">
 </style>
 
-<script>
-import CptFooter from "../cptFooter.vue";
-// import BacktoTop from "./../backtoTop.vue";
-import cptHeader from "./../cptHeader.vue";
-export default {
-  components: {cptHeader, CptFooter },
-  mounted() {
-    this.btnlr();
-  },
-  methods: {
-    btnlr() {
-      document
-        .querySelector(".img__btn")
-        .addEventListener("click", function () {
-          document.querySelector(".cont").classList.toggle("s--signup");
-        });
-    },
-  },
-};
+<script src="./login.js">
 </script>
 

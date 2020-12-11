@@ -25,7 +25,6 @@
   display: none;
   
 }
-
 .slider .slide {
   display: flex;
   position: absolute;
@@ -45,7 +44,6 @@
   text-align: center;
   margin-top: 5px;
 }
-
 .ctrl-btn {
   padding: 20px 20px;
   min-width: 50px;
@@ -94,7 +92,7 @@
   </body>
 </html>
 <script type="text/javascript">
-"use strict";
+// "use strict";
 
 productScroll();
 
@@ -118,7 +116,6 @@ function productScroll() {
         translateX(position); //translate items
       }
     });
-
     next[i].addEventListener("click", function() {
       if (position >= 0 && position < hiddenItems()) {
         //avoid slide right beyond the last item

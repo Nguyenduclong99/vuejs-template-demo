@@ -35,7 +35,7 @@
     background: #fff;
     transition: transform 1.2s ease-in-out;
 }
-.cont.s--signup .sub__cont {
+.cont.s__signup .sub__cont {
     transform: translate3d(-640px, 0, 0);
 }
 button {
@@ -78,7 +78,7 @@ button {
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
 }
-.cont.s--signup .img:before {
+.cont.s__signup .img:before {
     transform: translate3d(640px, 0, 0);
 }
 .img__text {
@@ -95,19 +95,20 @@ button {
 .img__text h2 {
     margin-bottom: 10px;
     font-weight: normal;
+
     color: white;
 }
 .img__text p {
     font-size: 14px;
     line-height: 1.5;
 }
-.cont.s--signup .img__text.m--up {
+.cont.s__signup .img__text.m__up {
     transform: translateX(520px);
 }
-.img__text.m--in {
+.img__text.m__in {
     transform: translateX(-520px);
 }
-.cont.s--signup .img__text.m--in {
+.cont.s__signup .img__text.m__in {
     transform: translateX(0);
 }
 .img__btn {
@@ -145,13 +146,13 @@ button {
     height: 100%;
     transition: transform 1.2s;
 }
-.img__btn span.m--in {
+.img__btn span.m__in {
     transform: translateY(-72px);
 }
-.cont.s--signup .img__btn span.m--in {
+.cont.s__signup .img__btn span.m__in {
     transform: translateY(0);
 }
-.cont.s--signup .img__btn span.m--up {
+.cont.s__signup .img__btn span.m__up {
     transform: translateY(72px);
 }
 h2 {
@@ -198,7 +199,7 @@ input {
 .sign-in {
     transition-timing-function: ease-out;
 }
-.cont.s--signup .sign-in {
+.cont.s__signup .sign-in {
     transition-timing-function: ease-in-out;
     transition-duration: 1.2s;
     transform: translate3d(640px, 0, 0);
@@ -206,20 +207,6 @@ input {
 .sign-up {
     transform: translate3d(-900px, 0, 0);
 }
-.cont.s--signup .sign-up {
+.cont.s__signup .sign-up {
     transform: translate3d(0, 0, 0);
-}
-.icon-link {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    width: 32px;
-}
-.icon-link img {
-    width: 100%;
-    vertical-align: top;
-}
-.icon-link--twitter {
-    left: auto;
-    right: 5px;
 }

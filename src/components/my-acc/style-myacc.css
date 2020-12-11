@@ -1,0 +1,17 @@
+.myacc__container{
+    max-width: 1310px;
+}
+.row{
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+}
+.col{
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.myacc__single{
+margin-bottom: 20px;
+border: 1px solid #ebebeb;
+}
