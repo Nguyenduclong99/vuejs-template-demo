@@ -65,7 +65,7 @@ button {
     top: 0;
     width: 900px;
     height: 100%;
-    background-image: url('https://msmobile.com.vn/upload_images/images/2020/03/14/daniele-levis-pelusi-jTknOGI18us-unsplash.jpg');
+    background-image: url('./../../assets/bg-style-black.png');
     background-size: cover;
     transition: transform 1.3s ease-in-out;
 }
@@ -95,7 +95,6 @@ button {
 .img__text h2 {
     margin-bottom: 10px;
     font-weight: normal;
-
     color: white;
 }
 .img__text p {

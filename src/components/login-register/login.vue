@@ -6,7 +6,7 @@
     <!-- breadcrumb-links start -->
     <ul class="breadcrumb__links">
       <li>
-        <a href="/home">Home</a>
+       <router-link to="/home">Home</router-link>
       </li>
       <li><i class="fas fa-chevron-right"></i>Sign in/Sign up</li>
     </ul>
@@ -18,7 +18,7 @@
           <h2>Welcome back,</h2>
           <label>
             <span>Email</span>
-            <input type="email" />
+            <input type="email" placeholder="" />
           </label>
           <label>
             <span>Password</span>

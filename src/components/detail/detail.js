@@ -1,10 +1,20 @@
 import cptHeader from "./../cptHeader.vue";
 // import BacktoTop from "./../backtoTop.vue";
 import CptFooter from "../cptFooter.vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
 export default {
   components: { cptHeader,  CptFooter },
+  data() {
+    return {
+      info: [],
+    }
+  },
   mounted() {
     this.imageZoom();
+    axios
+    .get("https://fakestoreapi.com/products/1")
+    .then((response) => (this.info = response.data));
   },
   methods: {
     imageZoom(result) {

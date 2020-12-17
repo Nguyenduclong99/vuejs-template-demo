@@ -6,7 +6,7 @@
     <!-- breadcrumb-links start -->
     <ul class="breadcrumb__links">
       <li>
-        <a href="#">Home</a>
+        <router-link to="/home">Home</router-link>
       </li>
       <li><i class="fas fa-chevron-right"></i>Single Product</li>
     </ul>
@@ -14,7 +14,7 @@
     <div class="container">
       <div class="container__col1">
         <div class="img-zoom-container">
-          <img id="myimage" src="./../../assets/product-11.jpg" />
+          <img id="myimage" :src="data.image" />
           <div id="myresult" class="img-zoom-result"></div>
         </div>
         <div class="list__img">
@@ -24,8 +24,9 @@
           <img src="./../../assets/product-15.jpg" />
         </div>
       </div>
+      <ul></ul>
       <div class="container__col2">
-        <h2>Originals Kaval Windbr</h2>
+        <h2>{{ data.title }}</h2>
         <p class="reference">
           Reference:
           <span>Ecoshop</span>
@@ -47,13 +48,11 @@
         </div>
         <div class="pricing__meta">
           <ul>
-            <li>€18.90</li>
+            <li>€{{ data.price }}</li>
           </ul>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor
-          incidid ut labore et dolore magna aliqua. Ut enim ad minim venialo
-          quis nostrud exercitation ullamco
+          {{ data.description }}
         </p>
         <div class="product__detail">
           <ul>
@@ -165,7 +164,8 @@
             </a>
             <h3>
               <a class="product__link" href="/detail">
-                Juicy Couture Juicy Quilted Ter..</a>
+                Juicy Couture Juicy Quilted Ter..</a
+              >
             </h3>
             <div class="rating__product">
               <i class="fas fa-star"></i>
@@ -388,7 +388,94 @@
     <!-- <backto-top></backto-top> -->
   </div>
 </template>
-<script src = "./detail.js">
+<script>
+import cptHeader from "./../cptHeader.vue";
+// import BacktoTop from "./../backtoTop.vue";
+import CptFooter from "../cptFooter.vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
+export default {
+  components: { cptHeader, CptFooter },
+  data() {
+    return {
+      data: {},
+    };
+  },
+ async mounted() {
+   await axios
+      .get(`https://fakestoreapi.com/products/${this.$route.params.id}`)
+      .then(({ data }) => {
+        this.data = data;
+      })
+      this.imageZoom();
+  },
+  methods: {
+    imageZoom(result) {
+      var img, lens, cx, cy;
+      img = document.getElementById("myimage");
+      console.log("img:", img.src);
+      result = document.getElementById("myresult");
+      lens = document.createElement("DIV");
+      lens.setAttribute("class", "img__zoom__lens");
+      img.parentElement.insertBefore(lens, img);
+
+      cx = result.offsetWidth / lens.offsetWidth;
+      cy = result.offsetHeight / lens.offsetHeight;
+      result.style.backgroundImage = "url('" + img.src + "')";
+      result.style.backgroundSize =
+        img.width * cx + "px " + img.height * cy + "px";
+      /*execute a function when someone moves the cursor over the image, or the lens:*/
+      lens.addEventListener("mousemove", moveLens);
+      img.addEventListener("mousemove", moveLens);
+      /*and also for touch screens:*/
+      lens.addEventListener("touchmove", moveLens);
+      img.addEventListener("touchmove", moveLens);
+      function moveLens(e) {
+        var pos, x, y;
+        /*prevent any other actions that may occur when moving over the image:*/
+        e.preventDefault();
+        /*get the cursor's x and y positions:*/
+        pos = getCursorPos(e);
+        /*calculate the position of the lens:*/
+        x = pos.x - lens.offsetWidth / 2;
+        y = pos.y - lens.offsetHeight / 2;
+        /*prevent the lens from being positioned outside the image:*/
+        if (x > img.width - lens.offsetWidth) {
+          x = img.width - lens.offsetWidth;
+        }
+        if (x < 0) {
+          x = 0;
+        }
+        if (y > img.height - lens.offsetHeight) {
+          y = img.height - lens.offsetHeight;
+        }
+        if (y < 0) {
+          y = 0;
+        }
+        /*set the position of the lens:*/
+        lens.style.left = x + "px";
+        lens.style.top = y + "px";
+        /*display what the lens "sees":*/
+        result.style.backgroundPosition = "-" + x * cx + "px -" + y * cy + "px";
+      }
+      function getCursorPos(e) {
+        var a,
+          x = 0,
+          y = 0;
+        e = e || window.event;
+        /*get the x and y positions of the image:*/
+        a = img.getBoundingClientRect();
+        /*calculate the cursor's x and y coordinates, relative to the image:*/
+        x = e.pageX - a.left;
+        y = e.pageY - a.top;
+        /*consider any page scrolling:*/
+        x = x - window.pageXOffset;
+        y = y - window.pageYOffset;
+        return { x: x, y: y };
+      }
+    },
+  },
+};
 </script>
 <style scoped src="./style-detail.css">
 </style>

@@ -3,6 +3,7 @@
     <cpt-header></cpt-header>
     <!-- Header end -->
     <!-- menu start -->
+    
     <div class="nav__content">
       <div class="dropdown">
         <div class="dropbtn">
@@ -117,8 +118,8 @@
         </div> -->
       </div>
       <div class="best__sells__container">
-        <div id="product">
-          <img src="./../assets/products/1.jpg" />
+        <div id="product" v-for="(item, product) in infor" v-bind:key="product">
+          <img v-bind:src="item.image" />
           <section class="icon">
             <div class="new__icon">New</div>
           </section>
@@ -127,11 +128,21 @@
               <span>STUDIO DESIGN</span>
             </a>
             <h3>
+              <!-- lấy id gửi qua routerLink -->
               <a class="product__link"
-                ><router-link to="/detail"
-                  >Juicy Couture Juicy Quilted Ter..</router-link
-                ></a
+                ><router-link :to="`/detail/${item.id}`">{{ item.title }}</router-link></a
               >
+                <!-- lấy id và tên gửi qua routerLink -->
+                <!-- <a class="product__link"
+                ><router-link
+                  :to="{
+                    name: 'Detail',
+                    params: { id: item.id },
+                    query: { name: item.title }
+                  }"
+                  >{{ item.title }}</router-link
+                ></a
+              > -->
             </h3>
             <div class="rating__product">
               <i class="fas fa-star"></i>
@@ -141,7 +152,7 @@
               <i class="fas fa-star"></i>
             </div>
             <section class="pricing__meta">
-              <div class="old__price">100.231$</div>
+              <div class="old__price">{{ item.price }}$</div>
               <div class="current__price">90$</div>
               <div class="discount__price">-10$</div>
             </section>
@@ -164,7 +175,7 @@
             </div>
           </section>
         </div>
-        <div id="product">
+        <!-- <div id="product">
           <img src="./../assets/products/2.jpg" />
           <section class="icon">
             <div class="new__icon">New</div>
@@ -352,7 +363,7 @@
               ></a>
             </div>
           </section>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="clear"></div>
@@ -472,10 +483,8 @@
             </a>
             <h3>
               <a href="single-product.html" class="product__link"
-                ><router-link to="/detail"
-                  >Juicy Couture Juicy Quilted Ter..</router-link
-                ></a
-              >
+                ><router-link to="/detail"></router-link
+              ></a>
             </h3>
             <div class="rating__product">
               <i class="fas fa-star"></i>
@@ -955,18 +964,21 @@
 <script>
 import CptFooter from "./cptFooter.vue";
 import cptHeader from "./cptHeader.vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
 export default {
   components: { cptHeader, CptFooter },
   data() {
     return {
       slideIndex: 1,
+      infor: [],
     };
   },
-  watch: {},
-
   mounted() {
     this.autochangeSlide();
-    this.productScroll();
+    axios
+      .get("https://fakestoreapi.com/products?limit=5")
+      .then((response) => (this.infor = response.data));
   },
   methods: {
     showDivs(n) {
@@ -991,66 +1003,6 @@ export default {
         this.plusDivs(1);
       }, 5000);
     },
-
-    // productScroll() {
-    //   let slider = document.getElementById("best__sells__container");
-    //   let next = document.getElementById("btn-nex");
-    //   let prev = document.getElementById("pro-pre");
-
-    //   let item = document.getElementById("product");
-
-    //   for (let i = 0; i < next.length; i++) {
-    //     //refer elements by class name
-
-    //     let position = 0; //slider postion
-
-    //     prev[i].addEventListener("click", function () {
-    //       //click previos button
-    //       if (position > 0) {
-    //         console.log("----------");
-    //         //avoid slide left beyond the first item
-    //         position -= 1;
-    //         this.translateX(position); //translate items
-    //       }
-    //     });
-
-    //     next[i].addEventListener("click", function () {
-    //       console.log("----------");
-    //       if (position >= 0 && position < hiddenItems()) {
-    //         //avoid slide right beyond the last item
-    //         position += 1;
-    //         this.translateX(position); //translate items
-    //       }
-    //     });
-    //   }
-
-    //   function hiddenItems() {
-    //     //get hidden items
-    //     let items = this.getCount(item, false);
-    //     let visibleItems = slider.offsetWidth / 210;
-    //     return items - Math.ceil(visibleItems);
-    //   }
-    // },
-
-    // translateX(position) {
-    //   let slide = document.getElementById("slide");
-    //   //translate items
-    //   slide.style.left = position * -210 + "px";
-    // },
-
-    // getCount(parent, getChildrensChildren) {
-    //   //count no of items
-    //   let relevantChildren = 0;
-    //   let children = parent.childNodes.length;
-    //   for (let i = 0; i < children; i++) {
-    //     if (parent.childNodes[i].nodeType != 3) {
-    //       if (getChildrensChildren)
-    //         relevantChildren += this.getCount(parent.childNodes[i], true);
-    //       relevantChildren++;
-    //     }
-    //   }
-    //   return relevantChildren;
-    // },
   },
 };
 </script>
@@ -1754,6 +1706,8 @@ nav ul ul ul {
 .best__sells #product img {
   position: relative;
   overflow: hidden;
+  width: 220px;
+  height: 220px;
 }
 .best__sells #product #description {
   padding: 20px 15px 16px 15px;
@@ -1770,6 +1724,13 @@ nav ul ul ul {
 }
 .product__link {
   color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 22px;
+  -webkit-line-clamp: 2;
+  height: 44px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 #description a {
   text-decoration: none;
@@ -2287,7 +2248,7 @@ nav ul ul ul {
   /* margin: 0 auto; */
   overflow: hidden;
   /* margin-top: 50px; */
-  
+
   position: relative;
 }
 .chuyen-slide {

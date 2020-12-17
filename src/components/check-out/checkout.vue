@@ -4,7 +4,7 @@
     <!-- breadcrumb-links start -->
     <ul class="breadcrumb__links">
       <li>
-        <a href="#">Home</a>
+        <router-link to="/home">Home</router-link>
       </li>
       <li><i class="fas fa-chevron-right"></i>Check out</li>
     </ul>

@@ -1,9 +1,11 @@
 <template>
-<div>     
+  <div>
     <a-layout-header class="header" id="navbar">
       <div class="header__logo">
         <a href="#">
-          <img src="./../assets/logo (1).jpg" />
+          <router-link to="/home">
+            <img src="./../assets/logo (1).jpg" />
+          </router-link>
         </a>
       </div>
       <div class="menu">
@@ -15,8 +17,12 @@
                 <li>
                   <a href="#">Home1.1<i class="fas fa-chevron-right"></i></a>
                   <ul>
-                    <li><a href="/home">Home2.1</a></li>
-                    <li><a href="/home">Home2.2</a></li>
+                    <li>
+                      <a href=""
+                        ><router-link to="/home">Home2.1</router-link></a
+                      >
+                    </li>
+                    <li><a href="">Home2.2</a></li>
                     <li><a href="#">Home2.3</a></li>
                     <li><a href="#">Home2.4</a></li>
                   </ul>
@@ -33,29 +39,45 @@
               </ul>
             </li>
             <li>
-              <a href="/list-item">List</a>
+              <router-link to="/list-item">List</router-link>
             </li>
             <li>
-              <a href="/cart">Cart<i class="fas fa-chevron-down"></i></a>
+              <router-link to="/cart"
+                >Cart <i class="fas fa-chevron-down"></i
+              ></router-link>
             </li>
             <li>
-              <a href="/about">About<i class="fas fa-chevron-down"></i></a>
+              <router-link to="/about"
+                >About<i class="fas fa-chevron-down"></i
+              ></router-link>
             </li>
             <li>
-              <a href="/login">Login/Register</a>
+              <router-link to="/login"> Login/Register</router-link>
             </li>
           </ul>
         </nav>
       </div>
       <div class="cart__info" style="width: 300px">
-        <a-badge  id="span" count="1" :number-style="{ backgroundColor: '#52c41a' }">
+        <a-badge
+          id="span"
+          count="1"
+          :number-style="{ backgroundColor: '#52c41a' }"
+        >
           <a class="cart__a"><fa-icon icon="random" /></a>
         </a-badge>
-        <a-badge  id="span" count="1" :number-style="{ backgroundColor: '#52c41a' }">
+        <a-badge
+          id="span"
+          count="1"
+          :number-style="{ backgroundColor: '#52c41a' }"
+        >
           <a class="cart__a"><fa-icon icon="heart" /></a>
         </a-badge>
         <div class="dropdown__cart">
-          <a-badge  id="span" count="2" :number-style="{ backgroundColor: '#52c41a' }">
+          <a-badge
+            id="span"
+            count="2"
+            :number-style="{ backgroundColor: '#52c41a' }"
+          >
             <a class="cart__a" @click="myFunction()">
               <fa-icon icon="shopping-cart" />
             </a>
@@ -64,9 +86,9 @@
               <ul>
                 <li class="single__shopping-cart">
                   <div class="product__img-cart">
-                    <a href="/detail">
+                    <router-link to="/detail">
                       <img src="./../assets/p1.jpg" />
-                    </a>
+                    </router-link>
                     <span class="product__quantity-cart">2x</span>
                   </div>
                   <div class="product__title-cart">
@@ -97,10 +119,14 @@
                 <h4>Subtotal:<span>$20.00</span></h4>
                 <h4>Shipping:<span>$7.00</span></h4>
                 <h4>VAT:<span>$5.00</span></h4>
-                <h4 style="color: #253237; font-weight:500;">Total:<span style="color: #253237; font-weight:500;">$32.00</span></h4>
+                <h4 style="color: #253237; font-weight: 500">
+                  Total:<span style="color: #253237; font-weight: 500"
+                    >$32.00</span
+                  >
+                </h4>
               </div>
               <div class="shopping__btn-checkout">
-                <a href="/checkout">Checkout</a>
+                <router-link to="/checkout">Checkout</router-link>
               </div>
             </div>
           </a-badge>
@@ -108,8 +134,8 @@
       </div>
     </a-layout-header>
     <div class="up__page" id="myBtn" @click="topFunction">
-    <i id="icon" class="fas fa-arrow-up"></i>
-  </div>
+      <i id="icon" class="fas fa-arrow-up"></i>
+    </div>
   </div>
 </template>
 <style scoped>
@@ -274,13 +300,13 @@ nav > ul > li {
   display: inline-block;
   line-height: 40px;
 }
-nav > ul > li > a {
+::v-deep nav > ul > li > a {
   display: block;
   line-height: 30px;
   padding: 5px 40px;
 }
 /* icon down */
-nav > ul > li > a > svg {
+::v-deep nav > ul > li > a > svg {
   margin-left: 5px;
   padding-top: 2px;
 }
@@ -379,7 +405,7 @@ nav ul ul ul {
   width: 20px;
   border: 1px solid rgb(39, 40, 43);
   margin-left: 280px;
-  margin-top:5px;
+  margin-top: 5px;
 }
 .dropdown__cart-content ul {
   margin: 0;
@@ -398,20 +424,20 @@ nav ul ul ul {
   width: 85px;
 }
 .product__quantity-cart {
-    background-color: #0090f0;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    min-width: 20px;
-    line-height: 20px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    padding: 0;
-    text-align: center;
-    color: #fff;
-    font-size: 12px;
-    display: inline-block;
+  background-color: #0090f0;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  min-width: 20px;
+  line-height: 20px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
 }
 .single__shopping-cart a img {
   width: 85px;
@@ -454,44 +480,44 @@ nav ul ul ul {
   color: #888;
   font-size: 18px;
 }
-.shopping__total-cart{
+.shopping__total-cart {
   margin: 25px 0;
 }
-.shopping__total-cart h4{
-    font-weight: 400;
-    color: #9b9b9b;
-    font-size: 16px;
-    text-transform: capitalize;
-    line-height: 25px;
+.shopping__total-cart h4 {
+  font-weight: 400;
+  color: #9b9b9b;
+  font-size: 16px;
+  text-transform: capitalize;
+  line-height: 25px;
 }
-.shopping__total-cart h4>span{
+.shopping__total-cart h4 > span {
   float: right;
-    font-weight: 400;
-    color: #9b9b9b;
-    font-size: 16px;
-    text-transform: capitalize;
+  font-weight: 400;
+  color: #9b9b9b;
+  font-size: 16px;
+  text-transform: capitalize;
 }
-.shopping__btn-checkout{
+.shopping__btn-checkout {
   text-align: center;
 }
-.shopping__btn-checkout a{
-    display: block;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 14px;
-    border: none;
-    color: #272727;
-    box-shadow: none;
-    padding: 10px 15px;
-    line-height: 28px;
-    border: none;
-    background: #ebebeb;
-    border-radius: 30px;
+.shopping__btn-checkout a {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  border: none;
+  color: #272727;
+  box-shadow: none;
+  padding: 10px 15px;
+  line-height: 28px;
+  border: none;
+  background: #ebebeb;
+  border-radius: 30px;
 }
-.shopping__btn-checkout a:hover{
+.shopping__btn-checkout a:hover {
   background: #0090f0;
   color: #fff;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .show {
   display: block;
@@ -523,13 +549,15 @@ nav ul ul ul {
 <script>
 export default {
   mounted() {
-   this.pinHeader();
+    this.pinHeader();
   },
   methods: {
     pinHeader() {
       // var header =  document.getElementById("navbar");
       var mybutton = document.getElementById("myBtn");
-      window.onscroll = function() { myFunction() };
+      window.onscroll = function () {
+        myFunction();
+      };
       function myFunction() {
         if (
           document.body.scrollTop > 10 ||
@@ -537,11 +565,12 @@ export default {
         ) {
           document.getElementById("navbar").style.position = "fixed";
           mybutton.style.display = "block";
-          document.getElementById("navbar").style.boxShadow = " 3px 3px 3px #8D8B8A";
+          document.getElementById("navbar").style.boxShadow =
+            " 3px 3px 3px #8D8B8A";
         } else {
-           document.getElementById("navbar").style.position = "initial";
+          document.getElementById("navbar").style.position = "initial";
           mybutton.style.display = "none";
-           document.getElementById("navbar").style.boxShadow = "none";
+          document.getElementById("navbar").style.boxShadow = "none";
         }
       }
     },

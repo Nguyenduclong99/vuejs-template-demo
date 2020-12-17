@@ -8,10 +8,11 @@ import listitem from './../components/list-item/listitem.vue'
 import Index from './../components/Index.vue'
 import About from './../components/about/about.vue'
 import MyAcc from './../components/my-acc/myacc.vue'
+import test from './../components/indextest.vue'
 Vue.use(VueRouter)
 const routes = [
   {
-    path:'/detail',
+    path:'/detail/:id',
     name:'Detail',
     component: detail
   },
@@ -49,6 +50,11 @@ const routes = [
     path: '/myacc',
     name : "Myacc",
     component: MyAcc
+  },
+  {
+    path: '/test',
+    name : "Test",
+    component: test
   }
 ]
 const router = new VueRouter({
